@@ -39,12 +39,12 @@ public class BaseMethods {
         try (FileInputStream ip = new FileInputStream("src/test/resources/config.properties")) {
             prop.load(ip);
         }
-        String browser = prop.getProperty("browser");
+        String browser = getFromEnvOrProperty("browser");
         DriverFactory.initializeDriver(browser);
         driver = DriverFactory.getDriver();
-        js = (JavascriptExecutor) driver;
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-        String url = prop.getProperty("homepage");
+        js = (JavascriptExecutor) driver;
+        String url = getFromEnvOrProperty("homepage");
         driver.get(url);
     }
 
@@ -139,6 +139,14 @@ public class BaseMethods {
     void clickButton(String buttonName, WebElement clickable) {
         log.debug("Clicking element \"{}\"", buttonName);
         js.executeScript("arguments[0].click();", clickable);
+    }
+
+    private String getFromEnvOrProperty(String propertyName) {
+        String propertyValue = System.getenv(propertyName);
+        if (propertyValue == null) {
+            propertyValue = prop.getProperty(propertyName);
+        }
+        return propertyValue;
     }
 
 }
