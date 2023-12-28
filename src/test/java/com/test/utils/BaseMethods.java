@@ -27,6 +27,7 @@ public class BaseMethods {
 
     private WebDriver driver;
 
+    private JavascriptExecutor js;
     public static Properties prop;
     private static final int DEFAULT_TIMEOUT_SLEEP_DIVISOR = 30;
     private static final Duration DEFAULT_WEB_DRIVER_WAIT_TIMEOUT = ofSeconds(15);
@@ -41,6 +42,7 @@ public class BaseMethods {
         String browser = prop.getProperty("browser");
         DriverFactory.initializeDriver(browser);
         driver = DriverFactory.getDriver();
+        js = (JavascriptExecutor) driver;
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         String url = prop.getProperty("homepage");
         driver.get(url);
@@ -136,7 +138,7 @@ public class BaseMethods {
 
     void clickButton(String buttonName, WebElement clickable) {
         log.debug("Clicking element \"{}\"", buttonName);
-        clickable.click();
+        js.executeScript("arguments[0].click();", clickable);
     }
 
 }
