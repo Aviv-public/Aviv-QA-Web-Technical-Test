@@ -1,0 +1,16 @@
+{
+  "name": "aviv-qa-web-technical-test",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "alltestrun": "cypress run --spec cypress/e2e/tests/*.cy.js"
+  },
+  "author": "Ekta Aneja",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.2",
+    "cypress-mochawesome-reporter": "^3.8.0"
+  }
+}

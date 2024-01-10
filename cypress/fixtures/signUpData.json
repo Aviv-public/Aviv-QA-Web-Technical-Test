@@ -1,0 +1,19 @@
+{
+
+    "FirstName":"testing",
+    "LastName":"testinguser",
+    "Email":"testinguser1234567@gmail.com",
+    "Password":"testinguser123",
+    "ConfirmPassword":"testinguser123",
+    "ConfirmPasswrd":"testing@1235",
+    "CountryValue":"United States",
+    "City":"Juneau",
+    "State":"Alaska",
+    "Address":"Heritage Way - Alaska Public",
+    "PostalCode":"99801",
+    "PhoneNumber":"1234567890",
+    "ConfirmationMsg":"Your order has been successfully processed!"
+
+}
+
+
