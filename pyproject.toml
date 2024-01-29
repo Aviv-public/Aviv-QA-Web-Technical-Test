@@ -23,6 +23,7 @@ webdriver-manager = "^4.0"
 structlog = "^24.1"
 Faker = "^18.4"
 pre-commit = "^3.6"
+pytest-html = "^4.1.1"
 
 [tool.pytest.ini_options]
 addopts = [
