@@ -47,7 +47,7 @@ def test_user_login(browser, first_name, last_name, dob_day, dob_month, dob_year
         # If not , check unsuccessful registration for scenario 2
         registration_unsuccessful_page = RegistrationUnsuccessfulPage(registration_page.page)
         registration_unsuccessful_page.verify_unsuccessful_registration()
-        pytest.xfail("Test is expected to fail due to invalid registration")
+        #pytest.xfail("Test is expected to fail due to invalid registration")
 
 
     # login Page
