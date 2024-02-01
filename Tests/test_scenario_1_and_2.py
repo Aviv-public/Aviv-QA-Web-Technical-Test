@@ -11,6 +11,8 @@ from Pages.payment_method_page import PaymentMethodPage
 from Pages.confirm_page import ConfirmPage
 from Pages.complete_page import CompletedPage
 import pytest
+import csv
+import os
 
 @pytest.mark.parametrize(
     "first_name, last_name, dob_day, dob_month, dob_year, email, password, expected_result",
@@ -19,6 +21,7 @@ import pytest
         ("Invalid", "User", "1", "1", "2000", "invalid_email", "password123", False),  # Invalid registration for scenario 2
     ],
 )
+#@pytest.mark.parametrize("first_name, last_name, dob_day, dob_month, dob_year, email, password, expected_result", csv.reader(open(os.path.join(os.path.dirname(__file__), 'test_data.csv'))))
 def test_user_login(browser, first_name, last_name, dob_day, dob_month, dob_year, email, password, expected_result, dynamic_email, dynamic_password):
     # Registration Page
     registration_page = RegistrationPage(browser.new_page())
