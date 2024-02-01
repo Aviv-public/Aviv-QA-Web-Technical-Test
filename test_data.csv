@@ -1,0 +1,3 @@
+first_name,last_name,dob_day,dob_month,dob_year,email,password,expected_result
+Romin,Parvardeh,17,1,1992,,,True
+Invalid,User,1,1,2000,invalid_email,password123,False
