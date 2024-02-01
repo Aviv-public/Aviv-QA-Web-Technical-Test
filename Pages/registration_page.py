@@ -34,6 +34,7 @@ class RegistrationPage:
     def click_register_button(self):
         self.page.click(self.register_button_locator)
 
+
 class RegistrationSuccessfulPage:
     def __init__(self, page):
         self.page = page
@@ -49,3 +50,11 @@ class RegistrationSuccessfulPage:
 
     def click_continue_button(self):
         self.page.click(self.continue_button)
+
+class RegistrationUnsuccessfulPage:
+    def __init__(self, page):
+        self.page = page
+
+    error_message_locator = '.field-validation-error[data-valmsg-for="Email"]'
+    def verify_unsuccessful_registration(self):
+        assert self.page.locator(self.error_message_locator).inner_text() == 'Wrong email'
