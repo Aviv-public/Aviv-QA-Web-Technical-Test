@@ -12,7 +12,6 @@ from Pages.confirm_page import ConfirmPage
 from Pages.complete_page import CompletedPage
 import pytest
 
-
 @pytest.mark.parametrize(
     "first_name, last_name, dob_day, dob_month, dob_year, email, password, expected_result",
     [
@@ -92,7 +91,6 @@ def test_user_login(browser, first_name, last_name, dob_day, dob_month, dob_year
 
     # Payment Method Page - Continue with payment info
     payment_method_page.click_continue_payment_info_button()
-
 
     # Confirm Page - Confirm the order
     confirm_page = ConfirmPage(payment_method_page.page)

@@ -20,7 +20,6 @@ class ProductDetailPage:
         notification_close_button = self.page.locator(self.notification_close_button_locator)
         notification_close_button.click()
 
-
     def click_shopping_cart_button(self):
         shopping_cart_button = self.page.locator(self.shopping_cart_button_locator)
         shopping_cart_button.click()

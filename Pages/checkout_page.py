@@ -11,12 +11,10 @@ class CheckoutPage:
     phone_number_input_locator = 'input#BillingNewAddress_PhoneNumber'
     continue_button_locator = '#billing-buttons-container'
 
-    # Actions
     def fill_billing_information(self):
         # Choose Germany from the country dropdown
         country_dropdown = self.page.locator(self.country_dropdown_locator)
         country_dropdown.select_option('Germany')
-
 
         # Fill in the city
         city_input = self.page.locator(self.city_input_locator)
@@ -26,7 +24,7 @@ class CheckoutPage:
         address1_input = self.page.locator(self.address1_input_locator)
         address1_input.fill('dernburgstrasse 21')
 
-        # Fill in the zipcode
+        # fill in the zipcode
         zipcode_input = self.page.locator(self.zipcode_input_locator)
         zipcode_input.fill('14055')
 

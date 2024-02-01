@@ -3,12 +3,14 @@ from playwright.sync_api import Page
 class CompletedPage:
     def __init__(self, page: Page):
         self.page = page
-        self.title_locator = '.title strong'
-        self.order_number_locator = '.order-number strong'
-        self.details_link_locator = '.details-link a'
-        self.continue_button_locator = '.button-1.order-completed-continue-button'
-        self.page_container_locator = '.page.checkout-page.order-completed-page'
-        self.expected_text = 'Your order has been successfully processed!'
+
+    # Locators
+    title_locator = '.title strong'
+    order_number_locator = '.order-number strong'
+    details_link_locator = '.details-link a'
+    continue_button_locator = '.button-1.order-completed-continue-button'
+    page_container_locator = '.page.checkout-page.order-completed-page'
+    expected_text = 'Your order has been successfully processed!'
 
     def is_page_visible(self):
         # check if the page container is visible

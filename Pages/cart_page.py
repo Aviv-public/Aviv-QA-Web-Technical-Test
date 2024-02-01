@@ -6,9 +6,8 @@ class CartPage:
     terms_and_condition_checkbox_locator = 'input#termsofservice'
     checkout_button_locator = 'button#checkout'
 
-    # Actions
     def checkout(self):
-        # Check the terms and conditions checkbox
+        # check the terms and conditions checkbox
         terms_and_condition_checkbox = self.page.locator(self.terms_and_condition_checkbox_locator)
         terms_and_condition_checkbox.check()
 

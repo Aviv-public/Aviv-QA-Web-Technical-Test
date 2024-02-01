@@ -7,7 +7,7 @@ import uuid
 def dynamic_email():
     # Generate a unique email address
     base_email = "romin.parvardeh+"
-    unique_identifier = str(uuid.uuid4().hex)[:8]  # Use the first 8 characters of the UUID
+    unique_identifier = str(uuid.uuid4().hex)[:8]  # use the first 8 characters of the uuid
     return f"{base_email}{unique_identifier}@gmail.com"
 
 @pytest.fixture(scope='session')
