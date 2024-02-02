@@ -1,0 +1,25 @@
+{
+  "name": "aviv-qa-task",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manishasapra/Aviv-QA-Task.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manishasapra/Aviv-QA-Task/issues"
+  },
+  "homepage": "https://github.com/manishasapra/Aviv-QA-Task#readme",
+  "devDependencies": {
+    "cucumber": "^6.0.7",
+    "cypress": "^13.6.4",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  }
+}
