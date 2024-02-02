@@ -1,0 +1,22 @@
+{
+    "validUser": {
+        "gender": "female",
+        "firstName": "New",
+        "lastName": "Sap",
+        "birthDay": "5",
+        "birthMonth": "10",
+        "birthYear": "1992",
+        "email": "new.sap109@mailinator.com",
+        "password": "TempPassword"
+    },
+    "invalidUser": {
+        "gender": "male",
+        "firstName": "Invalid",
+        "lastName": "User",
+        "birthDay": "5",
+        "birthMonth": "10",
+        "birthYear": "1992",
+        "email": "invalid_email",
+        "password": "Short"
+    }
+}

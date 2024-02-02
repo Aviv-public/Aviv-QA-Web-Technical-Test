@@ -1,0 +1,38 @@
+{
+    "validations": {
+        "registration": "Your registration completed",
+        "homePageUrl": "registerresult"
+    },
+    "checkoutValidation": {
+        "successfulOrder": "Your order has been successfully processed!",
+        "orderNumber": "Order number: \\d+",
+        "orderDetails": "/orderdetails/\\d+"
+    },
+    "registrationValidation": {
+        "passwordRules": "Password must meet the following rules:",
+        "wrongEmail": "Wrong email"
+    },
+    "productValidations": [
+    {
+        "productName": "First Prize Pies",
+        "productQuantity": 1,
+        "updatedQuantity": 2,
+        "productRemoval": false
+    },
+    {
+        "productName": "Fahrenheit 451 by Ray Bradbury",
+        "productQuantity": 1,
+        "updatedQuantity": 3,
+        "productRemoval": true
+    },
+    {
+        "productName": "Pride and Prejudice",
+        "productQuantity": 1,
+        "updatedQuantity": 1,
+        "productRemoval": false
+    }
+]
+
+
+
+}

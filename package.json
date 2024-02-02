@@ -1,0 +1,33 @@
+{
+  "name": "aviv-qa-task",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manishasapra/Aviv-QA-Task.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manishasapra/Aviv-QA-Task/issues"
+  },
+  "homepage": "https://github.com/manishasapra/Aviv-QA-Task#readme",
+  "devDependencies": {
+    "cucumber": "^6.0.7",
+    "cypress": "^13.6.4",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-parallel": "^0.14.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  "dependencies": {
+    "cypress-mochawesome-reporter": "^3.8.1",
+    "mochawesome": "^7.1.3"
+  }
+}
