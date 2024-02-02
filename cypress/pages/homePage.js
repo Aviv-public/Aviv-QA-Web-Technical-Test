@@ -1,6 +1,6 @@
 class HomePage {
     visit() {
-        cy.visit("https://demo.nopcommerce.com/");
+        cy.visit(Cypress.env("baseUrl"));
     }
 
     clickOnRegisterButton() {

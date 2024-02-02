@@ -4,12 +4,16 @@ const cucumber = require('cypress-cucumber-preprocessor').default
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
+    reportDir: "reports",
     charts: true,
-    reportPageTitle: 'custom-title',
+    reportPageTitle: 'AVIV Task QA Report',
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
     debug: true,
+  },
+  env: {
+    baseUrl: 'https://demo.nopcommerce.com/',
   },
   e2e: {
     setupNodeEvents(on, config) {
@@ -20,5 +24,6 @@ module.exports = defineConfig({
   },
   retries: {
       runMode: 2,
+      openMode: 2
     },
 });

@@ -24,6 +24,15 @@ Feature: Testing of Ecommerce website for Sigup, SignIn and Checkout
         When Fill in invalid information for a new user
         Then Verify the user is not registered, and an appropriate error message is displayed
 
+    Scenario: Verify Cart Functionality
+
+        Given Navigate to the website
+        When Add multiple products to the shopping cart
+        Then Verify correct products and quantities in the shopping cart
+        When Modify the quantity of a product
+        When Remove a product from the cart
+        Then Verify the cart is updated accordingly
+
     Scenario: Existing User Login and Checkout
 
         Given Navigate to the website
@@ -36,13 +45,4 @@ Feature: Testing of Ecommerce website for Sigup, SignIn and Checkout
         When Select a payment method
         When Complete the purchase
         When Verify successful purchase and user confirmation
-        Then Logout from portal
-
-    Scenario: Verify Cart Functionality
-
-        Given Navigate to the website
-        When Add multiple products to the shopping cart
-        Then Verify correct products and quantities in the shopping cart
-        When Modify the quantity of a product
-        When Remove a product from the cart
-        Then Verify the cart is updated accordingly
+        Then Logout from portal    
