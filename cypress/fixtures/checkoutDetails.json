@@ -1,0 +1,12 @@
+{
+    "address": {
+        "country": "United States",
+        "state": "Florida",
+        "city": "Miami",
+        "address1": "xyz new street",
+        "address2": "apt 10",
+        "postalCode": "33101",
+        "phone": "123-456-7890",
+        "fax": "987-654-3210"
+    }
+}
