@@ -1,0 +1,98 @@
+
+/**
+* Programatically handled Jenkins pipeline job
+* This is a first draft [Execution cmd has been added correctly]
+* Demonstarting how job could look like with diff stages and steps
+* To cover : Build [Pre-requisite] -> Execution -> Report [Pass/Fail] -> Report sharing -> MR/PR updation
+* Need to replace with actula details of VM and cred.
+*/
+
+pipeline {
+    agent { label 'AVIV-automation-vm' }
+    options {
+        timestamps()
+        disableConcurrentBuilds(abortPrevious: true)
+        gitLabConnection('AVIV-connection')
+        gitlabBuilds(builds: ['build'])
+    }
+    parameters {
+        // Currently : we are executing on macOS and on Chrome browser
+        // First choice is default choise as below
+        choice(name: 'platform', choices: ['macChrome', 'macFF', 'windowsCharome', 'windowsFF'], description: 'Select platfrom on which you would like to run/execute the tests')
+    }
+    stages {
+        
+        stage('Configured parameters') {
+            steps {
+                script{
+                    try {
+                        echo "DEVICE: ${params.platform}"
+
+                        echo "CHANNEL: ${params.CHANNEL}"
+                    }
+                    catch(Exception e) {
+                        echo 'Exception occurred: ' + e.toString()
+                        retry(2)
+                    }
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                // Will add if anything is pre-requisite 
+                // To build, 
+                // To execute etc
+                script{
+                            dir("${WORKSPACE}"){
+                                sh "testng.xml"
+                            }
+                }
+                echo "Pre-requisite completed and getting ready for execution using Build version : ${params.BUILD_VERSION} on simulator ${params.platform}"
+            }
+        }
+        stage('Deploy') {
+            parallel {
+                stage('Test') {
+                    steps {
+                        echo "# Automation test execution ..  ..   ..   .. started .."
+                        script{
+                            dir("${WORKSPACE}"){
+                                if (params.CHANNEL == "#web-automation-alerts"){
+                                    CHANNEL_URL = "https://hooks.AVIV.COM/services/T02ECHB0FeJRXtcV4Qtb1v7"
+                                    tokenCredentialId = "<add-token>"
+                                }
+                                sh "testng.xml --report ${CHANNEL_URL}"
+                            }
+                            echo "# Automation test execution ..  ..   ..   .. completed .."
+                        }
+                    }
+                }
+            }
+        }
+        stage('Report') {
+            post {
+                success {
+                    // Update with status on Git/Version control used
+                    // If from Merge request or Pull request
+                    updateGitlabCommitStatus (name: 'regressionTest/smokeTest', state: 'success')
+
+                    // Report : sharing
+                    // Tag appropriate dev team
+                    reportSend (channel: "${params.CHANNEL}", color: "good", message: "BUILD : PASS \n Tests succeeded - On build ${params.BUILD_VERSION}. More details : ${env.BUILD_URL}")
+                }
+                failure {
+                    updateGitlabCommitStatus (name: 'regressionTest/smokeTest', state: 'failed')
+                    reportSend (failOnError: true, channel: "${params.CHANNEL}", color: "warning", message: "BUILD : FAIL \n Tests failed  - ${env.JOB_NAME} on build ${params.BUILD_VERSION}. More details : ${env.BUILD_URL}")
+                }
+                cleanup {
+                    cleanWs()
+                }
+                always {
+                    // Take VM done 
+                    // Cmd depends on whether machine is spinning under 
+                    // Azure or AWS or Local in AVIV environment
+                }
+            }
+        }
+    }
+}
