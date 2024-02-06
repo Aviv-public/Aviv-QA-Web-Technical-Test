@@ -34,10 +34,11 @@ class homePage {
     }
 
     clickAddToCardBtn() {
+        cy.wait(2)
         cy.get(this.webLocator.addToCardBtns).eq(2)
         .should('be.visible')
         .should('be.enabled')
-        .click({ force: true });
+        .click();
     }
 
     addProductInCart() {

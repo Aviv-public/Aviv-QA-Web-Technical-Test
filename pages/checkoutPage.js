@@ -15,7 +15,9 @@ class checkOutPage {
         confirmationMsg: '.section > .title'
     }
 
-    UpdateBillingAddress(CountryValue, State, City, Address, PostalCode, PhoneNumber) {
+
+
+    updateBillingAddress(CountryValue, State, City, Address, PostalCode, PhoneNumber) {
 
         cy.get(this.weblocator.billingCountryDropedown, { force: true }).select(CountryValue);
         cy.get(this.weblocator.billingStateDropeDown).select(State)
@@ -27,11 +29,17 @@ class checkOutPage {
 
     }
 
+    clickBillingContinueBtn() {
+        cy.get(this.weblocator.billingContinueBtn).click()
+    }
+
     paymentAndConfirmOrder(ConfirmationMsg) {
         cy.get(this.weblocator.shippingMethodContinueBtn).click()
         cy.get(this.weblocator.paymentMethodContinueBtn).should('be.visible').click();
         cy.get(this.weblocator.paymentInfoContinueBtn).should('be.visible').click();
+        cy.wait(2)
         cy.get(this.weblocator.confirmBtn).click()
+        cy.wait(2)
         cy.get(this.weblocator.confirmationMsg).should('contain.text', ConfirmationMsg)
     }
 
