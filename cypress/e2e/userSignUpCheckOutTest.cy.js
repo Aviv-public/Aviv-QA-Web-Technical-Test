@@ -30,7 +30,7 @@ describe('User registration and Checkout product', () => {
         homePage.goToShoppingCart()
         shoppingCartPage.clickTermsOfServiceCheckbox()
         shoppingCartPage.clickCheckOutButton()
-        checkoutPage.UpdateBillingAddress(checkoutData.CountryValue, checkoutData.State, checkoutData.City, checkoutData.Address, checkoutData.PostalCode, checkoutData.PhoneNumber);
+        checkoutPage.updateBillingAddress(checkoutData.CountryValue, checkoutData.State, checkoutData.City, checkoutData.Address, checkoutData.PostalCode, checkoutData.PhoneNumber);
         checkoutPage.paymentAndConfirmOrder(checkoutData.ConfirmationMsg);
 
     })
@@ -50,7 +50,8 @@ describe('User registration and Checkout product', () => {
         homePage.goToShoppingCart()
         shoppingCartPage.clickTermsOfServiceCheckbox()
         shoppingCartPage.clickCheckOutButton()
-        checkoutPage.UpdateBillingAddress(checkoutData.CountryValue, checkoutData.State, checkoutData.City, checkoutData.Address, checkoutData.PostalCode, checkoutData.PhoneNumber);
+        //checkoutPage.updateBillingAddress(checkoutData.CountryValue, checkoutData.State, checkoutData.City, checkoutData.Address, checkoutData.PostalCode, checkoutData.PhoneNumber);
+        checkoutPage.clickBillingContinueBtn()
         checkoutPage.paymentAndConfirmOrder(checkoutData.ConfirmationMsg);
 
     })

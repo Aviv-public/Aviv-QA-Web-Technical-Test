@@ -4,8 +4,14 @@
   "description": "demo.nopcommerce.com test withy cypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "allTest": "cypress run --spec cypress/e2e/*.cy.js"
+    "test": "npm run clear-reports && cypress run",
+    "allTest": "cypress run --spec cypress/e2e/*.cy.js",
+    "open": "cypress open",
+    "chromeheadless": "cypress run --spec 'cypress/e2e/*.cy.js' --browser chrome",
+    "chrome": "cypress run --spec 'cypress/e2e/*.cy.js' --headed chrome",
+    "clear-reports": "rm -rf cypress/reports/mochawesome && mkdir -p cypress/reports/mochawesome"
+  
+ 
   },
   "author": "Sumant Kumar",
   "license": "ISC",
