@@ -10,8 +10,6 @@
     "chromeheadless": "cypress run --spec 'cypress/e2e/*.cy.js' --browser chrome",
     "chrome": "cypress run --spec 'cypress/e2e/*.cy.js' --headed chrome",
     "clear-reports": "rm -rf cypress/reports/mochawesome && mkdir -p cypress/reports/mochawesome"
-  
- 
   },
   "author": "Sumant Kumar",
   "license": "ISC",
@@ -22,6 +20,7 @@
     "mochawesome-report-generator": "^6.2.0"
   },
   "dependencies": {
-    "cypress": "^13.6.4"
+    "cypress": "^13.6.4",
+    "cypress-parallel": "^0.14.0"
   }
 }
