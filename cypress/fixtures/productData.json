@@ -1,0 +1,19 @@
+{
+    "productDetails": [
+        {
+            "name": "Fahrenheit 451 by Ray Bradbury",
+            "newquantity": 2,
+            "remove": true
+        },
+        {
+            "name": "First Prize Pies",
+            "newquantity": 3,
+            "remove": false
+        },
+        {
+            "name": "Pride and Prejudice",
+            "newquantity": 2,
+            "remove": false
+        }
+    ]
+}
