@@ -1,0 +1,12 @@
+{
+    "FirstName":"TestFirst",
+    "LastName":"TestLast",
+    "Email":"test1@gmail.com",
+    "Password":"Test@123",
+    "ConfirmPassword":"Test@123",
+    "invalidConfirmedPassword":"Invalid",
+    "RegistrationSuccessMessage":"Your registration completed",
+    "ConfirmedPasswordErrorMessage":"The password and confirmation password do not match."
+}
+
+

@@ -4,7 +4,8 @@
   "description": "demo.nopcommerce.com test withy cypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "alltestrun": "cypress run --spec cypress/e2e/*.cy.js"
   },
   "author": "Sumant Kumar",
   "license": "ISC",
