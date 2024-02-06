@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+const faker = require('faker');
+
+Cypress.Commands.add('generateRandomData', (fileName) => {
+  const randomData = {
+    
+    Email: faker.internet.email(),
+    // Add more properties as needed
+  };
+
+  cy.writeFile(`cypress/fixtures/${fileName}.json`, randomData);
+});

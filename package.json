@@ -9,6 +9,12 @@
   },
   "author": "Sumant Kumar",
   "license": "ISC",
+  "devDependencies": {
+    "faker": "^5.5.3",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0"
+  },
   "dependencies": {
     "cypress": "^13.6.4"
   }
