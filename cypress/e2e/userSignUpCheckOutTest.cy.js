@@ -6,7 +6,9 @@ import checkoutPage from "../../pages/checkoutPage";
 import signUpData from "../fixtures/signUpData.json"
 import checkoutData from "../fixtures/checkoutData.json"
 
+
 describe('User registration and Checkout product', () => {
+
 
     beforeEach(() => {
         homePage.openUrl();
@@ -14,16 +16,21 @@ describe('User registration and Checkout product', () => {
 
     it('should register a new user and checkout product', () => {
 
+        cy.generateRandomData('loginData');
         homePage.clickRigesterTab()
-        userRegistrationPage.EnterDetails(signUpData.FirstName, signUpData.LastName, signUpData.Email, signUpData.Password, signUpData.ConfirmPassword)
-        userRegistrationPage.verifyRegistrationSuccesfulMsg(signUpData.RegistrationSuccessMessage)
-        homePage.validateHeader()
-        loginPage.loginWithValidUser(signUpData.Email, signUpData.Password)
+
+        // Use the generated data in your test if needed
+        cy.fixture("loginData").then((loginData) => {
+            userRegistrationPage.EnterDetails(signUpData.FirstName, signUpData.LastName, loginData.Email, signUpData.Password, signUpData.ConfirmPassword)
+            userRegistrationPage.verifyRegistrationSuccesfulMsg(signUpData.RegistrationSuccessMessage)
+            homePage.validateHeader()
+            loginPage.loginWithValidUser(loginData.Email, signUpData.Password)
+        });
         homePage.clickAddToCardBtn()
         homePage.goToShoppingCart()
         shoppingCartPage.clickTermsOfServiceCheckbox()
         shoppingCartPage.clickCheckOutButton()
-        checkoutPage.UpdateBillingAddress(checkoutData.CountryValue, checkoutData.State, checkoutData.City,  checkoutData.Address, checkoutData.PostalCode, checkoutData.PhoneNumber);
+        checkoutPage.UpdateBillingAddress(checkoutData.CountryValue, checkoutData.State, checkoutData.City, checkoutData.Address, checkoutData.PostalCode, checkoutData.PhoneNumber);
         checkoutPage.paymentAndConfirmOrder(checkoutData.ConfirmationMsg);
 
     })
@@ -32,5 +39,21 @@ describe('User registration and Checkout product', () => {
         userRegistrationPage.EnterDetails(signUpData.FirstName, signUpData.LastName, signUpData.Email, signUpData.Password, signUpData.invalidConfirmedPassword);
         userRegistrationPage.verifyConfirmPasswordErrorMsg(signUpData.ConfirmedPasswordErrorMessage);
     })
+
+    it('Login With User and add to Cart', () => {
+
+        cy.fixture("loginData").then((loginData) => {
+            loginPage.loginWithValidUser(loginData.Email, signUpData.Password)
+        });
+
+        homePage.clickAddToCardBtn()
+        homePage.goToShoppingCart()
+        shoppingCartPage.clickTermsOfServiceCheckbox()
+        shoppingCartPage.clickCheckOutButton()
+        checkoutPage.UpdateBillingAddress(checkoutData.CountryValue, checkoutData.State, checkoutData.City, checkoutData.Address, checkoutData.PostalCode, checkoutData.PhoneNumber);
+        checkoutPage.paymentAndConfirmOrder(checkoutData.ConfirmationMsg);
+
+    })
+
 
 })
