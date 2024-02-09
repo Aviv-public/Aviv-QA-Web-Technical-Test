@@ -1,8 +1,7 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage{
 
@@ -10,10 +9,10 @@ public class HomePage extends BasePage{
         super(driver);
     }
 
-    @FindBy(xpath="//a[normalize-space()='Register']")
-    private WebElement linkRegister;
+    By linkRegister = By.xpath("//a[normalize-space()='Register']");
 
-    public void clickRegister(){
-        linkRegister.click();
+
+    public boolean clickRegisterLink(){
+        return clickElement(linkRegister);
     }
 }
