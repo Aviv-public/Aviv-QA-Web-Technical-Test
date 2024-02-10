@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6451aeb-64d3-43fb-adad-3ed023815976" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pageObjects/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObjects/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObjects/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObjects/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testBase/BaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testBase/BaseClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "TestNG.TC_001_InvalidSignupAttempt.verify_invalid_signup.executor": "Run",
     "TestNG.TC_001_InvalidSignupAttemptIT.verify_invalid_signup.executor": "Run",
+    "TestNG.UserRegistrationValidationTestIT.executor": "Run",
+    "TestNG.UserRegistrationValidationTestIT.shouldVerifyUserRegistration_whenUserClickRegisterButton.executor": "Run",
     "TestNG.validateRegistrationPageValidationMessagesIT.executor": "Run",
     "TestNG.validateRegistrationPageValidationMessagesIT.shouldVerifyFieldValidationMessageOnRegisterPageWithBlankFields_whenUserClickRegisterButton (1).executor": "Run",
     "TestNG.validateRegistrationPageValidationMessagesIT.shouldVerifyFieldValidationMessageOnRegisterPageWithBlankFields_whenUserClickRegisterButton.executor": "Run",
@@ -65,7 +69,7 @@
       <recent name="D:\TechnicalTest\Kunal-QA-Web-Technical-Test\src\test\java" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.validateRegistrationPageValidationMessagesIT">
+  <component name="RunManager" selected="TestNG.UserRegistrationValidationTestIT.shouldVerifyUserRegistration_whenUserClickRegisterButton">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Kunal-QA-Web-Technical-Test" />
       <method v="2">
@@ -79,7 +83,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TC_001_InvalidSignupAttempt.verify_invalid_signup" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="UserRegistrationValidationTestIT" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Kunal-QA-Web-Technical-Test" />
       <extension name="coverage">
         <pattern>
@@ -88,8 +92,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="testCases" />
-      <option name="MAIN_CLASS_NAME" value="testCases.TC_001_InvalidSignupAttempt" />
-      <option name="METHOD_NAME" value="verify_invalid_signup" />
+      <option name="MAIN_CLASS_NAME" value="testCases.UserRegistrationValidationTestIT" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRegistrationValidationTestIT.shouldVerifyUserRegistration_whenUserClickRegisterButton" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Kunal-QA-Web-Technical-Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testCases.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="testCases" />
+      <option name="MAIN_CLASS_NAME" value="testCases.UserRegistrationValidationTestIT" />
+      <option name="METHOD_NAME" value="shouldVerifyUserRegistration_whenUserClickRegisterButton" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -114,7 +135,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="validateRegistrationPageValidationMessagesIT.shouldVerifyFieldValidationMessageOnRegisterPageWithBlankFields_whenUserClickRegisterButton (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="validateRegistrationPageValidationMessagesIT.shouldVerifyFieldValidationMessageOnRegisterPageWithBlankFields_whenUserClickRegisterButton" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Kunal-QA-Web-Technical-Test" />
       <extension name="coverage">
         <pattern>
@@ -152,10 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.UserRegistrationValidationTestIT.shouldVerifyUserRegistration_whenUserClickRegisterButton" />
+        <item itemvalue="TestNG.UserRegistrationValidationTestIT" />
         <item itemvalue="TestNG.validateRegistrationPageValidationMessagesIT" />
         <item itemvalue="TestNG.validateRegistrationPageValidationMessagesIT.shouldVerifyFieldValidationMessageOnRegisterPageWithBlankFields_whenUserClickRegisterButton" />
         <item itemvalue="TestNG.validateRegistrationPageValidationMessagesIT.shouldVerifyFieldValidationMessageOnRegisterPageWithBlankFields_whenUserClickRegisterButton (1)" />
-        <item itemvalue="TestNG.TC_001_InvalidSignupAttempt.verify_invalid_signup" />
       </list>
     </recent_temporary>
   </component>
