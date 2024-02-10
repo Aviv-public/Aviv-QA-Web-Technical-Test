@@ -28,13 +28,12 @@ public class BaseClass {
 
         driver=new ChromeDriver();
         driver.manage().deleteAllCookies();
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get(properties.getProperty("appURL"));
         driver.manage().window().maximize();
     }
 
-   // @AfterClass
+   @AfterClass
     public void tearDown(){
         driver.close();
     }
