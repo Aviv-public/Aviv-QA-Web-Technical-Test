@@ -2,6 +2,7 @@
 
 <suite name="MySuite" parallel="tests" thread-count="2">
     <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
         <classes>
            <!-- <class name="testCases.UserRegistrationValidationTestIT"/> -->
             <class name="testCases.validateRegistrationPageValidationMessagesIT"/>
