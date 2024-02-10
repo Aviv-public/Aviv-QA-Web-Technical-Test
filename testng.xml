@@ -4,8 +4,8 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-           <!-- <class name="testCases.UserRegistrationValidationTestIT"/> -->
-            <class name="testCases.validateRegistrationPageValidationMessagesIT"/>
+           <class name="testCases.validateUserRegistrationIT"/>
+            <!-- <class name="testCases.validateRegistrationPageValidationMessagesIT"/>-->
         </classes>
     </test>
 </suite>

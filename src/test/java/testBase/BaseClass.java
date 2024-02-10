@@ -31,7 +31,7 @@ public class BaseClass {
         driver.manage().window().maximize();
     }
 
-   @AfterClass
+   //@AfterClass
     public void tearDown(){
         driver.close();
     }

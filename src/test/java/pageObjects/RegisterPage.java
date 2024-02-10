@@ -9,10 +9,10 @@ public class RegisterPage extends BasePage{
         super(driver);
     }
 
-    By firstName = By.id("FirstName");
+    By firstNameTxt = By.id("FirstName");
     By lastNameTxt = By.id("LastName");
     By emailTxt = By.id("Email");
-    By companyName = By.id("companyName");
+    By companyName = By.id("Company");
     By passwordTxt = By.id("Password");
     By confirmPasswordTxt = By.id("ConfirmPassword");
 
@@ -22,7 +22,7 @@ public class RegisterPage extends BasePage{
 
 
     public boolean sendKeysToFirstName(String firstName){
-        return sendKeysToElement(this.firstName, firstName);
+        return sendKeysToElement(firstNameTxt, firstName);
     }
     public boolean sendKeysToLastName(String lastName){
         return sendKeysToElement(lastNameTxt, lastName);

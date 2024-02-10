@@ -3,6 +3,7 @@ package testCases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
+import pageObjects.LoginPage;
 import pageObjects.RegisterPage;
 import pageObjects.RegisterResultPage;
 import testBase.BaseClass;
@@ -20,7 +21,9 @@ public class validateUserRegistrationIT extends BaseClass {
         RegisterPage registerPage = new RegisterPage(driver);
         assertTrue("Unable to enter test in 'First Name' field",registerPage.sendKeysToFirstName(RandomDataGenerator.randomString()));
         assertTrue("Unable to enter test in 'Last Name' field",registerPage.sendKeysToLastName(RandomDataGenerator.randomString()));
-        assertTrue("Unable to enter test in 'Email' field",registerPage.sendKeysToEmail(RandomDataGenerator.randomAlphaNumeric()+".com"));
+        String email = RandomDataGenerator.randomAlphaNumeric()+".com";
+        assertTrue("Unable to enter test in 'Email' field",registerPage.sendKeysToEmail(email));
+        //registerPage.scrollToCompanyName();
         assertTrue("Unable to enter test in 'Company Name' field",registerPage.sendKeysToCompanyName());
         String password = RandomDataGenerator.randomString();
         assertTrue("Unable to enter test in 'Password' field", registerPage.sendKeysToPassword(password));
@@ -30,6 +33,15 @@ public class validateUserRegistrationIT extends BaseClass {
         RegisterResultPage registerResultPage = new RegisterResultPage(driver);
         String registerResulExpectedMessage = "Your registration completed";
         Assert.assertEquals(registerResultPage.getRegisterResultText(),registerResulExpectedMessage,"Unable to verify Register Result message");
+
+        homePage.clickLoginLink();
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.sendKeysToEmail(email);
+        loginPage.sendKeysToPassword(password);
+        loginPage.clickLoginButton();
+
+        homePage.clickSearchBox("laptop");
+        homePage.clickFirstElement();
 
     }
 }

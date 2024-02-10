@@ -11,8 +11,24 @@ public class HomePage extends BasePage{
 
     By linkRegister = By.xpath("//a[normalize-space()='Register']");
 
+    By linkLogin = By.linkText("Log in");
+    By searchTxt = By.id("small-searchterms");
+    By firstElement = By.xpath("(//li[@class='ui-menu-item'])[1]");
+
+
+
 
     public boolean clickRegisterLink(){
         return clickElement(linkRegister);
+    }
+
+    public boolean clickLoginLink(){
+        return clickElement(linkLogin);
+    }
+    public boolean clickSearchBox(String laptop){
+        return sendKeysToElement(searchTxt,laptop);
+    }
+    public boolean clickFirstElement(){
+        return clickElement(firstElement);
     }
 }
