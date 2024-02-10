@@ -6,6 +6,7 @@ import pageObjects.HomePage;
 import pageObjects.RegisterPage;
 import pageObjects.RegisterResultPage;
 import testBase.BaseClass;
+import utilities.RandomDataGenerator;
 
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -17,12 +18,13 @@ public class UserRegistrationValidationTestIT extends BaseClass {
         assertTrue("unable to click on Register Link",homePage.clickRegisterLink());
 
         RegisterPage registerPage = new RegisterPage(driver);
-        registerPage.sendKeysToFirstName();
-        registerPage.sendKeysToLastName();
-        registerPage.sendKeysToEmail();
+        registerPage.sendKeysToFirstName(RandomDataGenerator.randomString());
+        registerPage.sendKeysToLastName(RandomDataGenerator.randomString());
+        registerPage.sendKeysToEmail(RandomDataGenerator.randomAlphaNumeric()+".com");
         registerPage.sendKeysToCompanyName();
-        registerPage.sendKeysToPassword();
-        registerPage.sendKeysToConfirmPassword();
+        String password = RandomDataGenerator.randomString();
+        registerPage.sendKeysToPassword(password);
+        registerPage.sendKeysToConfirmPassword(password);
         registerPage.clickRegisterButton();
 
         RegisterResultPage registerResultPage = new RegisterResultPage(driver);
