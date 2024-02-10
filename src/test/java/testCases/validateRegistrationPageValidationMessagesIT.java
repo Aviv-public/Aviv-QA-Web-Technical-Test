@@ -14,10 +14,10 @@ public class validateRegistrationPageValidationMessagesIT extends BaseClass {
     public void shouldVerifyFieldValidationMessageOnRegisterPageWithBlankFields_whenUserClickRegisterButton(){
 
         HomePage homePage = new HomePage(driver);
-        assertTrue("unable to click on Register Link",homePage.clickRegisterLink());
+        assertTrue("unable to click on 'Register' Link",homePage.clickRegisterLink());
 
         RegisterPage registerPage = new RegisterPage(driver);
-        assertTrue("unable to click on Register button",registerPage.clickRegisterButton());
+        assertTrue("unable to click on 'Register' button",registerPage.clickRegisterButton());
 
         String firstNameIsRequiredExpectedMessage = "First name is required.";
         Assert.assertEquals(registerPage.getFirstNameIsRequiredValidationMessage(),firstNameIsRequiredExpectedMessage,"Unable to verify validation message");

@@ -4,7 +4,7 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="testCases.UserRegistrationValidationTestIT"/>
+            <class name="testCases.validateUserRegistrationIT"/>
             <class name="testCases.validateRegistrationPageValidationMessagesIT"/>
         </classes>
     </test>
@@ -12,7 +12,7 @@
     <test name="EdgeTest">
         <parameter name="browser" value="edge"/>
         <classes>
-            <class name="testCases.UserRegistrationValidationTestIT"/>
+            <class name="testCases.validateUserRegistrationIT"/>
             <class name="testCases.validateRegistrationPageValidationMessagesIT"/>
         </classes>
     </test>
