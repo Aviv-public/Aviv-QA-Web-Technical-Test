@@ -12,6 +12,10 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <wait.short>5</wait.short>
+        <wait.default>10</wait.default>
+        <wait.medium>20</wait.medium>
+        <wait.long>40</wait.long>
     </properties>
 
     <build>
@@ -35,6 +39,13 @@
                             <suiteXmlFile>testing.xml</suiteXmlFile>
                             <!-- <suiteXmlFile></suiteXmlFile> -->
                         </suiteXmlFiles>
+                        <systemPropertyVariables>
+                            <wait.short>${wait.short}</wait.short>
+                            <wait.default>${wait.default}</wait.default>
+                            <wait.medium>${wait.medium}</wait.medium>
+                            <wait.long>${wait.long}</wait.long>
+                        </systemPropertyVariables>
+
                     </configuration>
                 </plugin>
             </plugins>
