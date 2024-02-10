@@ -12,6 +12,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <login.url>https://demo.nopcommerce.com/</login.url>
         <wait.short>5</wait.short>
         <wait.default>10</wait.default>
         <wait.medium>20</wait.medium>
@@ -40,6 +41,7 @@
                             <!-- <suiteXmlFile></suiteXmlFile> -->
                         </suiteXmlFiles>
                         <systemPropertyVariables>
+                            <login.url>${login.url}</login.url>
                             <wait.short>${wait.short}</wait.short>
                             <wait.default>${wait.default}</wait.default>
                             <wait.medium>${wait.medium}</wait.medium>
