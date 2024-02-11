@@ -16,8 +16,6 @@ public class HomePage extends BasePage{
     By firstElement = By.xpath("(//li[@class='ui-menu-item'])[1]");
 
 
-
-
     public boolean clickRegisterLink(){
         return clickElement(linkRegister);
     }

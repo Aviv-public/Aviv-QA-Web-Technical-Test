@@ -15,21 +15,21 @@ public class validateUserRegistrationIT extends BaseClass {
         HomePage homePage = new HomePage(driver);
         assertTrue("unable to click on Register Link",homePage.clickRegisterLink());
 
-        RegisterPage registerPage = new RegisterPage(driver);
-        assertTrue("Unable to enter test in 'First Name' field",registerPage.sendKeysToFirstName(RandomDataGenerator.randomString()));
-        assertTrue("Unable to enter test in 'Last Name' field",registerPage.sendKeysToLastName(RandomDataGenerator.randomString()));
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+        assertTrue("Unable to enter test in 'First Name' field", registrationPage.sendKeysToFirstName(RandomDataGenerator.randomString()));
+        assertTrue("Unable to enter test in 'Last Name' field", registrationPage.sendKeysToLastName(RandomDataGenerator.randomString()));
         String email = RandomDataGenerator.randomAlphaNumeric()+".com";
-        assertTrue("Unable to enter test in 'Email' field",registerPage.sendKeysToEmail(email));
+        assertTrue("Unable to enter test in 'Email' field", registrationPage.sendKeysToEmail(email));
         //registerPage.scrollToCompanyName();
-        assertTrue("Unable to enter test in 'Company Name' field",registerPage.sendKeysToCompanyName());
+        assertTrue("Unable to enter test in 'Company Name' field", registrationPage.sendKeysToCompanyName());
         String password = RandomDataGenerator.randomString();
-        assertTrue("Unable to enter test in 'Password' field", registerPage.sendKeysToPassword(password));
-        assertTrue("Unable to enter test in 'Confirm Password' field",registerPage.sendKeysToConfirmPassword(password));
-        assertTrue("Unable to click on 'Register' button",registerPage.clickRegisterButton());
+        assertTrue("Unable to enter test in 'Password' field", registrationPage.sendKeysToPassword(password));
+        assertTrue("Unable to enter test in 'Confirm Password' field", registrationPage.sendKeysToConfirmPassword(password));
+        assertTrue("Unable to click on 'Register' button", registrationPage.clickRegisterButton());
 
-        RegisterResultPage registerResultPage = new RegisterResultPage(driver);
+        RegistrationResultPage registrationResultPage = new RegistrationResultPage(driver);
         String registerResulExpectedMessage = "Your registration completed";
-        Assert.assertEquals(registerResultPage.getRegisterResultText(),registerResulExpectedMessage,"Unable to verify Register Result message");
+        Assert.assertEquals(registrationResultPage.getRegisterResultText(),registerResulExpectedMessage,"Unable to verify Register Result message");
 
         homePage.clickLoginLink();
         LoginPage loginPage = new LoginPage(driver);

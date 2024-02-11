@@ -3,9 +3,9 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RegisterPage extends BasePage{
+public class RegistrationPage extends BasePage{
 
-    public RegisterPage(WebDriver driver){
+    public RegistrationPage(WebDriver driver){
         super(driver);
     }
 

@@ -25,29 +25,18 @@ public class ExtentReportManager implements ITestListener {
 
     public void onStart(ITestContext testContext) {
 
-		/*SimpleDateFormat df=new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
-		Date dt=new Date();
-		String currentdatetimestamp=df.format(dt);
-		*/
-
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());// time stamp
         repName = "Test-Report-" + timeStamp + ".html";
         sparkReporter = new ExtentSparkReporter(".\\reports\\" + repName);// specify location of the report
 
-        sparkReporter.config().setDocumentTitle("opencart Automation Report"); // Title of report
-        sparkReporter.config().setReportName("opencart Functional Testing"); // name of the report
+        sparkReporter.config().setDocumentTitle("nopcommerce Automation Report"); // Title of report
+        sparkReporter.config().setReportName("nopcommerce Functional Testing"); // name of the report
         sparkReporter.config().setTheme(Theme.DARK);
 
         extent = new ExtentReports();
         extent.attachReporter(sparkReporter);
-        extent.setSystemInfo("Application", "opencart");
-        extent.setSystemInfo("Module", "Admin");
-        extent.setSystemInfo("Sub Module", "Customers");
+        extent.setSystemInfo("Application", "nopcommerce");
         extent.setSystemInfo("User Name", System.getProperty("user.name"));
-        extent.setSystemInfo("Environemnt", "QA");
-
-        String os = testContext.getCurrentXmlTest().getParameter("os");
-        extent.setSystemInfo("Operating System", os);
 
         String browser = testContext.getCurrentXmlTest().getParameter("browser");
         extent.setSystemInfo("Browser", browser);
@@ -97,6 +86,5 @@ public class ExtentReportManager implements ITestListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
