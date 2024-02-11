@@ -2,10 +2,7 @@ package testCases;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.HomePage;
-import pageObjects.LoginPage;
-import pageObjects.RegisterPage;
-import pageObjects.RegisterResultPage;
+import pageObjects.*;
 import testBase.BaseClass;
 import utilities.RandomDataGenerator;
 
@@ -40,8 +37,31 @@ public class validateUserRegistrationIT extends BaseClass {
         loginPage.sendKeysToPassword(password);
         loginPage.clickLoginButton();
 
-        homePage.clickSearchBox("laptop");
+        homePage.clickSearchBox("Asus N551JK-XO076H Laptop");
         homePage.clickFirstElement();
+        ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
+        productDetailsPage.clickAddToCardButton();
+        //productDetailsPage.confirmSuccessMessage();
+        productDetailsPage.clickShoppingCartLink();
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        shoppingCartPage.confirmPageTitle();
+        shoppingCartPage.clickTermOfServiceButton();
+        shoppingCartPage.clickCheckoutButton();
 
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        checkoutPage.confirmPageTitle();
+        checkoutPage.confirmBillingAddressTitle();
+        String countryName="Germany";
+        checkoutPage.selectCountryDropDownValueByText(countryName);
+        String city = "Berlin";
+        checkoutPage.sendKeysToCityTxt(city);
+        checkoutPage.sendKeysToAddress1Txt(RandomDataGenerator.randomString());
+        checkoutPage.sendKeysZipPostalCodeTxt("12345");
+        checkoutPage.sendKeysPhoneNumberTxt("1234567890");
+        checkoutPage.clickBillingContinueButton();
+        checkoutPage.clickShippingContinueButton();
+        checkoutPage.clickPaymentMethodContinueButton();
+        checkoutPage.clickPaymentInfoContinueButton();
+        checkoutPage.clickConfirmButton();
     }
 }

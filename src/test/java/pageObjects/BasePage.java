@@ -1,10 +1,10 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import waitTimes.WaitTimes;
 
@@ -81,6 +81,29 @@ public class BasePage {
             WebElement elementToReceiveKeys = new WebDriverWait(driver, waitTime)
                     .until(ExpectedConditions.elementToBeClickable(locator));
             elementToReceiveKeys.sendKeys(keys);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean confirmElementIsVisible(By locator) {
+        try {
+            WebElement webElement = new WebDriverWait(driver, waitTimes.DEFAULT_WAIT).until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return true;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean selectElementByText(By locator, String text) {
+        try {
+            WebElement element = new WebDriverWait(driver, waitTimes.DEFAULT_WAIT)
+                    .until(ExpectedConditions.visibilityOfElementLocated(locator));
+            Select select = new Select(element);
+            select.selectByVisibleText(text);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
