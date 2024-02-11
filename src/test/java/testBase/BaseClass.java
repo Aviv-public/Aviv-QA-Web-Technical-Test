@@ -1,5 +1,7 @@
 package testBase;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -7,9 +9,14 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class BaseClass {
 
-    public WebDriver driver;
+    static public WebDriver driver;
 
     @BeforeClass
     @Parameters("browser")
@@ -28,8 +35,23 @@ public class BaseClass {
         driver.manage().window().maximize();
     }
 
-   //@AfterClass
+   @AfterClass
     public void tearDown(){
         driver.close();
+    }
+
+    public String captureScreen(String tname){
+
+        String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+
+        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
+
+        String targetFilePath=System.getProperty("user.dir")+"\\screenshots\\" + tname + "_" + timeStamp + ".png";
+        File targetFile=new File(targetFilePath);
+
+        sourceFile.renameTo(targetFile);
+
+        return targetFilePath;
     }
 }

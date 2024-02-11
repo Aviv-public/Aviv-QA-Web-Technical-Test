@@ -50,12 +50,12 @@ public class CheckoutPage extends BasePage{
         return clickElement(shippingContinueButton,waitTimes.LONG_WAIT);
     }
     public boolean clickPaymentMethodContinueButton(){
-        return clickElement(paymentMethodContinueButton,waitTimes.LONG_WAIT);
+        return clickElement(paymentMethodContinueButton);
     }
     public boolean clickPaymentInfoContinueButton(){
-        return clickElement(paymentInfoContinueButton,waitTimes.LONG_WAIT);
+        return clickElement(paymentInfoContinueButton);
     }
     public boolean clickConfirmButton(){
-        return clickElement(confirmButton,waitTimes.LONG_WAIT);
+        return clickElement(confirmButton);
     }
 }

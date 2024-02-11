@@ -62,6 +62,6 @@ public class validateUserRegistrationIT extends BaseClass {
         checkoutPage.clickShippingContinueButton();
         checkoutPage.clickPaymentMethodContinueButton();
         checkoutPage.clickPaymentInfoContinueButton();
-        checkoutPage.clickConfirmButton();
+        assertTrue("unable to click on 'CONFIRM, button",checkoutPage.clickConfirmButton());
     }
 }
