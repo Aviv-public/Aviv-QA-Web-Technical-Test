@@ -8,23 +8,23 @@ public class ProductDetailsPage extends BasePage{
         super(driver);
     }
 
-    private final By addToCartButton = By.id("add-to-cart-button-5");
-    private final By successMessage = By.xpath("//div[@class='bar-notification success']");
-    private final By shoppingCartLink = By.xpath("//span[@class='cart-label'][text()='Shopping cart']");
+    private final By ADD_TO_CART_BUTTON = By.id("add-to-cart-button-5");
+    //private final By SUCCESS_MESSAGE = By.xpath("//div[@class='bar-notification success']");
+    private final By SHOPPING_CART_LINK = By.xpath("//span[@class='cart-label'][text()='Shopping cart']");
 
     public boolean clickAddToCartButton(){
-        return clickElement(addToCartButton);
+        return clickElement(ADD_TO_CART_BUTTON);
     }
 
 /*    public boolean confirmSuccessMessage(){
         return confirmElementIsVisible(successMessage);
     }*/
 
-    public String get(){
-        return getElementText(successMessage);
-    }
+/*    public String get(){
+        return getElementText(SUCCESS_MESSAGE);
+    }*/
 
     public boolean clickShoppingCartLink(){
-        return clickElement(shoppingCartLink);
+        return clickElement(SHOPPING_CART_LINK);
     }
 }

@@ -15,7 +15,6 @@ public class HomePage extends BasePage{
     private final By SEARCH_STORE_PLACEHOLDER = By.id("small-searchterms");
     private final By FIRST_ELEMENT_IN_SEARCH_STORE_PLACEHOLDER = By.xpath("(//li[@class='ui-menu-item'])[1]");
 
-
     public boolean confirmNopCommerceLogoIsVisible(){
         return confirmElementIsVisible(NOPCOMMERCE_LOGO);
     }

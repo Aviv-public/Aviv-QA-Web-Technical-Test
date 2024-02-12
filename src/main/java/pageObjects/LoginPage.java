@@ -8,17 +8,17 @@ public class LoginPage extends BasePage{
         super(driver);
     }
 
-    private final By emailTxt = By.id("Email");
-    private final By passwordTxt = By.id("Password");
-    private final By loginButton = By.xpath("//button[normalize-space()='Log in']");
+    private final By EMAIL_TEXT_BOX = By.id("Email");
+    private final By PASSWORD_TEXT_BOX = By.id("Password");
+    private final By LOGIN_BUTTON = By.xpath("//button[normalize-space()='Log in']");
 
     public boolean sendKeysToEmail(String email){
-        return sendKeysToElement(emailTxt,email);
+        return sendKeysToElement(EMAIL_TEXT_BOX,email);
     }
     public boolean sendKeysToPassword(String password){
-        return sendKeysToElement(passwordTxt,password);
+        return sendKeysToElement(PASSWORD_TEXT_BOX,password);
     }
     public boolean clickLoginButton(){
-        return clickElement(loginButton);
+        return clickElement(LOGIN_BUTTON);
     }
 }

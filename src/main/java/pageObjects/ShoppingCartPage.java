@@ -8,17 +8,17 @@ public class ShoppingCartPage extends BasePage{
         super(driver);
     }
 
-    private final By ShoppingCartPageTitle = By.xpath("//h1[normalize-space()='Shopping cart']");
-    private final By termOfServiceCheckbox = By.name("termsofservice");
-    private final By checkoutButton = By.id("checkout");
+    private final By SHOPPING_CART_PAGE_TITLE = By.xpath("//h1[normalize-space()='Shopping cart']");
+    private final By TERM_OF_SERVICE_CHECKBOX = By.name("termsofservice");
+    private final By CHECKOUT_BUTTON = By.id("checkout");
 
     public boolean confirmShoppingCartPageTitleIsVisible(){
-        return confirmElementIsVisible(ShoppingCartPageTitle);
+        return confirmElementIsVisible(SHOPPING_CART_PAGE_TITLE);
     }
     public boolean clickTermOfServiceCheckbox(){
-        return clickElement(termOfServiceCheckbox);
+        return clickElement(TERM_OF_SERVICE_CHECKBOX);
     }
     public boolean clickCheckoutButton(){
-        return clickElement(checkoutButton);
+        return clickElement(CHECKOUT_BUTTON);
     }
 }

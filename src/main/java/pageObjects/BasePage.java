@@ -51,31 +51,9 @@ public class BasePage {
         }
     }
 
-    public String getElementText(By locator, Duration waitTimes) {
-        try {
-            WebElement elementText = new WebDriverWait(driver, waitTimes)
-                    .until(ExpectedConditions.visibilityOfElementLocated(locator));
-            return elementText.getText();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Failed to get text from Element.";
-        }
-    }
-
     public boolean sendKeysToElement(By locator, String keys) {
         try {
             WebElement elementToReceiveKeys = new WebDriverWait(driver, waitTimes.DEFAULT_WAIT)
-                    .until(ExpectedConditions.elementToBeClickable(locator));
-            elementToReceiveKeys.sendKeys(keys);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-    public boolean sendKeysToElement(By locator, String keys, Duration waitTime) {
-        try {
-            WebElement elementToReceiveKeys = new WebDriverWait(driver, waitTime)
                     .until(ExpectedConditions.elementToBeClickable(locator));
             elementToReceiveKeys.sendKeys(keys);
             return true;

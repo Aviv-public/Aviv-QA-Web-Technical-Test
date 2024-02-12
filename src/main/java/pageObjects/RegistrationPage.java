@@ -9,60 +9,59 @@ public class RegistrationPage extends BasePage{
         super(driver);
     }
 
-    private final By registrationPageTitle = By.xpath("//h1[normalize-space()='Register']");
-    private final By firstNameTxt = By.id("FirstName");
-    private final By lastNameTxt = By.id("LastName");
-    private final By emailTxt = By.id("Email");
-    private final By companyName = By.id("Company");
-    private final By passwordTxt = By.id("Password");
-    private final By confirmPasswordTxt = By.id("ConfirmPassword");
-    private final By buttonRegister = By.id("register-button");
-    private final By firstNameIsRequiredValidationMessage = By.id("FirstName-error");
-    private final By lastNameIsRequiredValidationMessage = By.id("LastName-error");
-    private final By emailIsRequiredValidationMessage = (By.id("Email-error"));
-
-    By passwordIsRequiredValidationMessage = By.id("Password-error");
-    By confirmPasswordIsRequiredValidationMessage = By.id("ConfirmPassword-error");
+    private final By REGISTRATION_PAGE_TITLE = By.xpath("//h1[normalize-space()='Register']");
+    private final By FIRST_NAME_TEXT_BOX = By.id("FirstName");
+    private final By LAST_NAME_TEXT_BOX = By.id("LastName");
+    private final By EMAIL_TEXT_BOX = By.id("Email");
+    private final By COMPANY_NAME_TEXT_BOX = By.id("Company");
+    private final By PASSWORD_TEXT_BOX = By.id("Password");
+    private final By CONFIRM_PASSWORD_TEXT_BOX = By.id("ConfirmPassword");
+    private final By REGISTER_BUTTON = By.id("register-button");
+    private final By FIRST_NAME_IS_REQUIRED_VALIDATION_MESSAGE = By.id("FirstName-error");
+    private final By LAST_NAME_IS_REQUIRED_VALIDATION_MESSAGE = By.id("LastName-error");
+    private final By EMAIL_IS_REQUIRED_VALIDATION_MESSAGE = (By.id("Email-error"));
+    private final By PASSWORD_IS_REQUIRED_VALIDATION_MESSAGE = By.id("Password-error");
+    private final By CONFIRM_PASSWORD_IS_REQUIRED_VALIDATION_MESSAGE = By.id("ConfirmPassword-error");
 
     public boolean confirmRegistrationPageTitleIsVisible(){
-        return confirmElementIsVisible(registrationPageTitle);
+        return confirmElementIsVisible(REGISTRATION_PAGE_TITLE);
     }
     public boolean sendKeysToFirstName(String firstName){
-        return sendKeysToElement(firstNameTxt, firstName);
+        return sendKeysToElement(FIRST_NAME_TEXT_BOX, firstName);
     }
     public boolean sendKeysToLastName(String lastName){
-        return sendKeysToElement(lastNameTxt, lastName);
+        return sendKeysToElement(LAST_NAME_TEXT_BOX, lastName);
     }
     public boolean sendKeysToEmail(String email){
-        return sendKeysToElement(emailTxt, email);
+        return sendKeysToElement(EMAIL_TEXT_BOX, email);
     }
     public boolean sendKeysToCompanyName(){
-        return sendKeysToElement(companyName, "Test Company");
+        return sendKeysToElement(COMPANY_NAME_TEXT_BOX, "Test Company");
     }
     public boolean sendKeysToPassword(String password){
-        return sendKeysToElement(passwordTxt, password);
+        return sendKeysToElement(PASSWORD_TEXT_BOX, password);
     }
     public boolean sendKeysToConfirmPassword(String confirmPassword){
-        return sendKeysToElement(confirmPasswordTxt, confirmPassword);
+        return sendKeysToElement(CONFIRM_PASSWORD_TEXT_BOX, confirmPassword);
     }
     public boolean clickRegisterButton(){
-        return clickElement(buttonRegister);
+        return clickElement(REGISTER_BUTTON);
     }
     public String getFirstNameIsRequiredValidationMessage(){
-        return getElementText(firstNameIsRequiredValidationMessage);
+        return getElementText(FIRST_NAME_IS_REQUIRED_VALIDATION_MESSAGE);
     }
 
     public String getLastNameIsRequiredValidationMessage(){
-        return getElementText(lastNameIsRequiredValidationMessage);
+        return getElementText(LAST_NAME_IS_REQUIRED_VALIDATION_MESSAGE);
     }
     public String getEmailIsRequiredValidationMessage(){
-        return getElementText(emailIsRequiredValidationMessage);
+        return getElementText(EMAIL_IS_REQUIRED_VALIDATION_MESSAGE);
     }
     public String getPasswordIsRequiredValidationMessage(){
-        return getElementText(passwordIsRequiredValidationMessage);
+        return getElementText(PASSWORD_IS_REQUIRED_VALIDATION_MESSAGE);
     }
     public String getConfirmPasswordIsRequiredValidationMessage(){
-        return getElementText(confirmPasswordIsRequiredValidationMessage);
+        return getElementText(CONFIRM_PASSWORD_IS_REQUIRED_VALIDATION_MESSAGE);
     }
 
 }

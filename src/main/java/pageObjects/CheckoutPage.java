@@ -8,54 +8,54 @@ public class CheckoutPage extends BasePage{
         super(driver);
     }
 
-    private final By checkoutPageTitle = By.xpath("//h1[normalize-space()='Checkout']");
-    private final By billingAddressHeader = By.xpath("//h2[normalize-space()='Billing address']");
-    private final By countryDropDown = By.xpath("//select[@id='BillingNewAddress_CountryId']");
-    private final By cityTxt = By.id("BillingNewAddress_City");
-    private final By address1Txt = By.id("BillingNewAddress_Address1");
-    private final By zipPostalCodeTxt = By.id("BillingNewAddress_ZipPostalCode");
-    private final By phoneNumberTxt = By.id("BillingNewAddress_PhoneNumber");
-    private final By billingContinueButton = By.cssSelector("button.button-1.new-address-next-step-button");
-    private final By shippingContinueButton = By.cssSelector("button.button-1.shipping-method-next-step-button");
-    private final By paymentMethodContinueButton = By.cssSelector("button.button-1.payment-method-next-step-button");
-    private final By paymentInfoContinueButton = By.cssSelector("button.button-1.payment-info-next-step-button");
-    private final By confirmButton = By.cssSelector("button.button-1.confirm-order-next-step-button");
+    private final By CHECKOUT_PAGE_TITLE = By.xpath("//h1[normalize-space()='Checkout']");
+    private final By BILLING_ADDRESS_HEADER = By.xpath("//h2[normalize-space()='Billing address']");
+    private final By COUNTRY_DROP_DOWN = By.xpath("//select[@id='BillingNewAddress_CountryId']");
+    private final By CITY_TEXT_BOX = By.id("BillingNewAddress_City");
+    private final By ADDRESS1_TEXT_BOX = By.id("BillingNewAddress_Address1");
+    private final By ZIP_POSTAL_CODE_TEXT_BOX = By.id("BillingNewAddress_ZipPostalCode");
+    private final By PHONE_NUMBER_TEXT_BOX = By.id("BillingNewAddress_PhoneNumber");
+    private final By BILLING_CONTINUE_BUTTON = By.cssSelector("button.button-1.new-address-next-step-button");
+    private final By SHIPPING_CONTINUE_BUTTON = By.cssSelector("button.button-1.shipping-method-next-step-button");
+    private final By PAYMENT_METHOD_CONTINUE_BUTTON = By.cssSelector("button.button-1.payment-method-next-step-button");
+    private final By PAYMENT_INFO_CONTINUE_BUTTON = By.cssSelector("button.button-1.payment-info-next-step-button");
+    private final By CONFIRM_BUTTON = By.cssSelector("button.button-1.confirm-order-next-step-button");
 
     public boolean confirmCheckoutPageTitleIsVisible(){
-        return confirmElementIsVisible(checkoutPageTitle);
+        return confirmElementIsVisible(CHECKOUT_PAGE_TITLE);
     }
     public boolean confirmBillingAddressHeaderIsVisible(){
-        return confirmElementIsVisible(billingAddressHeader);
+        return confirmElementIsVisible(BILLING_ADDRESS_HEADER);
     }
     public boolean selectCountryDropDownValueByText(String countryName){
-        return selectElementByText(countryDropDown,countryName);
+        return selectElementByText(COUNTRY_DROP_DOWN,countryName);
     }
     public boolean sendKeysToCityTxt(String city){
-        return sendKeysToElement(cityTxt,city);
+        return sendKeysToElement(CITY_TEXT_BOX,city);
     }
 
     public boolean sendKeysToAddress1Txt(String address){
-        return sendKeysToElement(address1Txt,address);
+        return sendKeysToElement(ADDRESS1_TEXT_BOX,address);
     }
     public boolean sendKeysZipPostalCodeTxt(String postalCode){
-        return sendKeysToElement(zipPostalCodeTxt,postalCode);
+        return sendKeysToElement(ZIP_POSTAL_CODE_TEXT_BOX,postalCode);
     }
     public boolean sendKeysPhoneNumberTxt(String phoneNumber){
-        return sendKeysToElement(phoneNumberTxt,phoneNumber);
+        return sendKeysToElement(PHONE_NUMBER_TEXT_BOX,phoneNumber);
     }
     public boolean clickBillingContinueButton(){
-        return clickElement(billingContinueButton,waitTimes.LONG_WAIT);
+        return clickElement(BILLING_CONTINUE_BUTTON,waitTimes.LONG_WAIT);
     }
     public boolean clickShippingContinueButton(){
-        return clickElement(shippingContinueButton,waitTimes.LONG_WAIT);
+        return clickElement(SHIPPING_CONTINUE_BUTTON,waitTimes.LONG_WAIT);
     }
     public boolean clickPaymentMethodContinueButton(){
-        return clickElement(paymentMethodContinueButton);
+        return clickElement(PAYMENT_METHOD_CONTINUE_BUTTON);
     }
     public boolean clickPaymentInfoContinueButton(){
-        return clickElement(paymentInfoContinueButton);
+        return clickElement(PAYMENT_INFO_CONTINUE_BUTTON);
     }
     public boolean clickConfirmButton(){
-        return clickElement(confirmButton);
+        return clickElement(CONFIRM_BUTTON);
     }
 }

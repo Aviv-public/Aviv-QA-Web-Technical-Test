@@ -8,13 +8,13 @@ public class OrderCompletedPage extends BasePage{
         super(driver);
     }
 
-    private final By orderCompletedPageTitle = By.xpath("//h1[normalize-space()='Thank you']");
-    private final By orderProcessedSuccessMessage = By.xpath("//strong[normalize-space()='Your order has been successfully processed!']");
+    private final By ORDER_COMPLETED_PAGE_TITLE = By.xpath("//h1[normalize-space()='Thank you']");
+    private final By ORDER_PROCESSED_SUCCESS_MESSAGE = By.xpath("//strong[normalize-space()='Your order has been successfully processed!']");
 
     public boolean confirmOrderProcessedSuccessMessageIsVisible(){
-        return confirmElementIsVisible(orderProcessedSuccessMessage);
+        return confirmElementIsVisible(ORDER_PROCESSED_SUCCESS_MESSAGE);
     }
     public boolean confirmOrderCompletedPageTitleIsVisible(){
-        return confirmElementIsVisible(orderCompletedPageTitle);
+        return confirmElementIsVisible(ORDER_COMPLETED_PAGE_TITLE);
     }
 }
