@@ -11,10 +11,10 @@ public class OrderCompletedPage extends BasePage{
     private final By orderCompletedPageTitle = By.xpath("//h1[normalize-space()='Thank you']");
     private final By orderProcessedSuccessMessage = By.xpath("//strong[normalize-space()='Your order has been successfully processed!']");
 
-    public boolean confirmOrderProcessedSuccessMessage(){
+    public boolean confirmOrderProcessedSuccessMessageIsVisible(){
         return confirmElementIsVisible(orderProcessedSuccessMessage);
     }
-    public boolean confirmOrderCompletedPageTitle(){
+    public boolean confirmOrderCompletedPageTitleIsVisible(){
         return confirmElementIsVisible(orderCompletedPageTitle);
     }
 }

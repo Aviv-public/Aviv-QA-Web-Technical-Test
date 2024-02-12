@@ -14,9 +14,11 @@ public class verifyRegistrationPageValidationMessagesIT extends BaseClass {
     public void shouldVerifyFieldValidationMessageOnRegistrationPageWithBlankFields_whenUserClickRegisterButton() {
 
         HomePage homePage = new HomePage(driver);
+        assertTrue("unable to confirm 'nopCommerce' logo",homePage.confirmNopCommerceLogoIsVisible());
         assertTrue("unable to click on 'Register' Link", homePage.clickRegisterLink());
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
+        assertTrue("unable to confirm 'Register' page title",registrationPage.confirmRegistrationPageTitleIsVisible());
         assertTrue("unable to click on 'REGISTER' button", registrationPage.clickRegisterButton());
 
         String firstNameIsRequiredExpectedMessage = "First name is required.";

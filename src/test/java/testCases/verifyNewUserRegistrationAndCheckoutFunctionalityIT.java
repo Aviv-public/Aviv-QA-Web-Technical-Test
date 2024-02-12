@@ -48,13 +48,13 @@ public class verifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseCla
         assertTrue("unable to click on 'Shopping cart' link",productDetailsPage.clickShoppingCartLink());
 
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        assertTrue("unable to confirm 'Shopping cart' page title",shoppingCartPage.confirmShoppingCartPageTitle());
+        assertTrue("unable to confirm 'Shopping cart' page title",shoppingCartPage.confirmShoppingCartPageTitleIsVisible());
         assertTrue("unable to click term of service checkbox",shoppingCartPage.clickTermOfServiceCheckbox());
         assertTrue("unable to click 'CHECKOUT' button",shoppingCartPage.clickCheckoutButton());
 
         CheckoutPage checkoutPage = new CheckoutPage(driver);
-        assertTrue("unable to confirm 'Checkout' page title",checkoutPage.confirmCheckoutPageTitle());
-        assertTrue("unable to confirm 'Billing address' header",checkoutPage.confirmBillingAddressHeader());
+        assertTrue("unable to confirm 'Checkout' page title",checkoutPage.confirmCheckoutPageTitleIsVisible());
+        assertTrue("unable to confirm 'Billing address' header",checkoutPage.confirmBillingAddressHeaderIsVisible());
         String countryName="Germany";
         assertTrue("unable to select 'Germany' from 'Country:' dropdown",checkoutPage.selectCountryDropDownValueByText(countryName));
         String city = "Berlin";
@@ -69,7 +69,7 @@ public class verifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseCla
         assertTrue("unable to click on 'CONFIRM, button",checkoutPage.clickConfirmButton());
 
         OrderCompletedPage orderCompletedPage = new OrderCompletedPage(driver);
-        assertTrue("unable to confirm order completed page title",orderCompletedPage.confirmOrderCompletedPageTitle());
-        assertTrue("unable to verify success message",orderCompletedPage.confirmOrderProcessedSuccessMessage());
+        assertTrue("unable to confirm order completed page title",orderCompletedPage.confirmOrderCompletedPageTitleIsVisible());
+        assertTrue("unable to verify success message",orderCompletedPage.confirmOrderProcessedSuccessMessageIsVisible());
     }
 }

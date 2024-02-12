@@ -9,6 +9,7 @@ public class RegistrationPage extends BasePage{
         super(driver);
     }
 
+    private final By registrationPageTitle = By.xpath("//h1[normalize-space()='Register']");
     private final By firstNameTxt = By.id("FirstName");
     private final By lastNameTxt = By.id("LastName");
     private final By emailTxt = By.id("Email");
@@ -23,8 +24,9 @@ public class RegistrationPage extends BasePage{
     By passwordIsRequiredValidationMessage = By.id("Password-error");
     By confirmPasswordIsRequiredValidationMessage = By.id("ConfirmPassword-error");
 
-
-
+    public boolean confirmRegistrationPageTitleIsVisible(){
+        return confirmElementIsVisible(registrationPageTitle);
+    }
     public boolean sendKeysToFirstName(String firstName){
         return sendKeysToElement(firstNameTxt, firstName);
     }

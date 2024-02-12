@@ -21,10 +21,10 @@ public class CheckoutPage extends BasePage{
     private final By paymentInfoContinueButton = By.cssSelector("button.button-1.payment-info-next-step-button");
     private final By confirmButton = By.cssSelector("button.button-1.confirm-order-next-step-button");
 
-    public boolean confirmCheckoutPageTitle(){
+    public boolean confirmCheckoutPageTitleIsVisible(){
         return confirmElementIsVisible(checkoutPageTitle);
     }
-    public boolean confirmBillingAddressHeader(){
+    public boolean confirmBillingAddressHeaderIsVisible(){
         return confirmElementIsVisible(billingAddressHeader);
     }
     public boolean selectCountryDropDownValueByText(String countryName){

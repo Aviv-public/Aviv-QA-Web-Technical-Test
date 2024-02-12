@@ -9,12 +9,16 @@ public class HomePage extends BasePage{
         super(driver);
     }
 
+    private final By NOPCOMMERCE_LOGO = By.xpath("//img[@alt='nopCommerce demo store']");
     private final By REGISTER_LINK = By.xpath("//a[normalize-space()='Register']");
     private final By LOGIN_LINK = By.linkText("Log in");
     private final By SEARCH_STORE_PLACEHOLDER = By.id("small-searchterms");
-    private final By firstElement = By.xpath("(//li[@class='ui-menu-item'])[1]");
+    private final By FIRST_ELEMENT_IN_SEARCH_STORE_PLACEHOLDER = By.xpath("(//li[@class='ui-menu-item'])[1]");
 
 
+    public boolean confirmNopCommerceLogoIsVisible(){
+        return confirmElementIsVisible(NOPCOMMERCE_LOGO);
+    }
     public boolean clickRegisterLink(){
         return clickElement(REGISTER_LINK);
     }
@@ -26,6 +30,6 @@ public class HomePage extends BasePage{
         return sendKeysToElement(SEARCH_STORE_PLACEHOLDER,laptop);
     }
     public boolean clickFirstElementInSearchStorePlaceholder(){
-        return clickElement(firstElement);
+        return clickElement(FIRST_ELEMENT_IN_SEARCH_STORE_PLACEHOLDER);
     }
 }

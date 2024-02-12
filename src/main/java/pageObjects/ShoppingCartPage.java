@@ -12,7 +12,7 @@ public class ShoppingCartPage extends BasePage{
     private final By termOfServiceCheckbox = By.name("termsofservice");
     private final By checkoutButton = By.id("checkout");
 
-    public boolean confirmShoppingCartPageTitle(){
+    public boolean confirmShoppingCartPageTitleIsVisible(){
         return confirmElementIsVisible(ShoppingCartPageTitle);
     }
     public boolean clickTermOfServiceCheckbox(){
