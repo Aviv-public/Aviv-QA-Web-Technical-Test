@@ -16,13 +16,13 @@ public class verifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseCla
         assertTrue("unable to click on 'Register' Link",homePage.clickRegisterLink());
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
-        assertTrue("unable to enter text in 'First Name:' field", registrationPage.sendKeysToFirstName(RandomDataGenerator.randomString()));
-        assertTrue("unable to enter text in 'Last Name:' field", registrationPage.sendKeysToLastName(RandomDataGenerator.randomString()));
-        String email = RandomDataGenerator.randomAlphaNumeric()+".com";
+        assertTrue("unable to enter text in 'First Name:' field", registrationPage.sendKeysToFirstName(RandomDataGenerator.randomFirstName()));
+        assertTrue("unable to enter text in 'Last Name:' field", registrationPage.sendKeysToLastName(RandomDataGenerator.randomLastName()));
+        String email = RandomDataGenerator.randomEmail();
         assertTrue("unable to enter text in 'Email:' field", registrationPage.sendKeysToEmail(email));
         //registerPage.scrollToCompanyName();
         assertTrue("unable to enter text in 'Company Name:' field", registrationPage.sendKeysToCompanyName());
-        String password = RandomDataGenerator.randomString();
+        String password = RandomDataGenerator.randomPassword();
         assertTrue("unable to enter text in 'Password:' field", registrationPage.sendKeysToPassword(password));
         assertTrue("unable to enter text in 'Confirm Password:' field", registrationPage.sendKeysToConfirmPassword(password));
         assertTrue("unable to click on 'REGISTER' button", registrationPage.clickRegisterButton());
@@ -59,9 +59,9 @@ public class verifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseCla
         assertTrue("unable to select 'Germany' from 'Country:' dropdown",checkoutPage.selectCountryDropDownValueByText(countryName));
         String city = "Berlin";
         assertTrue("unable to enter text in 'City' field",checkoutPage.sendKeysToCityTxt(city));
-        assertTrue("unable to enter text in 'Address 1:' field",checkoutPage.sendKeysToAddress1Txt(RandomDataGenerator.randomString()));
-        assertTrue("unable to enter text in 'Zip / postal code:' field",checkoutPage.sendKeysZipPostalCodeTxt("12345"));
-        assertTrue("unable to enter text in 'Phone number:' field",checkoutPage.sendKeysPhoneNumberTxt("1234567890"));
+        assertTrue("unable to enter text in 'Address 1:' field",checkoutPage.sendKeysToAddress1Txt(RandomDataGenerator.randomAddress()));
+        assertTrue("unable to enter text in 'Zip / postal code:' field",checkoutPage.sendKeysZipPostalCodeTxt(RandomDataGenerator.randomPostalCode()));
+        assertTrue("unable to enter text in 'Phone number:' field",checkoutPage.sendKeysPhoneNumberTxt(RandomDataGenerator.randomPhoneNumber()));
         assertTrue("unable to click on Billing 'CONTINUE' button",checkoutPage.clickBillingContinueButton());
         assertTrue("unable to click on Shipping 'CONTINUE' button",checkoutPage.clickShippingContinueButton());
         assertTrue("unable to click on Payment Method 'CONTINUE' button",checkoutPage.clickPaymentMethodContinueButton());

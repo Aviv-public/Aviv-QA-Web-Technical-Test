@@ -35,7 +35,7 @@
                     <version>3.2.5</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>testing.xml</suiteXmlFile>
+                            <suiteXmlFile>testng.xml</suiteXmlFile>
                             <!-- <suiteXmlFile></suiteXmlFile> -->
                         </suiteXmlFiles>
                         <systemPropertyVariables>
