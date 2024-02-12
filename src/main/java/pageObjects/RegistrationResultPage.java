@@ -8,7 +8,7 @@ public class RegistrationResultPage extends BasePage{
         super(driver);
     }
 
-    By registerResultSuccessMessage = By.className("result");
+    private final By registerResultSuccessMessage = By.className("result");
 
     public String getRegisterResultText(){
         return getElementText(registerResultSuccessMessage);

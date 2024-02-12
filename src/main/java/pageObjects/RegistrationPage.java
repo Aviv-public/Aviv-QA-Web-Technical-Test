@@ -9,16 +9,20 @@ public class RegistrationPage extends BasePage{
         super(driver);
     }
 
-    By firstNameTxt = By.id("FirstName");
-    By lastNameTxt = By.id("LastName");
-    By emailTxt = By.id("Email");
-    By companyName = By.id("Company");
-    By passwordTxt = By.id("Password");
-    By confirmPasswordTxt = By.id("ConfirmPassword");
+    private final By firstNameTxt = By.id("FirstName");
+    private final By lastNameTxt = By.id("LastName");
+    private final By emailTxt = By.id("Email");
+    private final By companyName = By.id("Company");
+    private final By passwordTxt = By.id("Password");
+    private final By confirmPasswordTxt = By.id("ConfirmPassword");
+    private final By buttonRegister = By.id("register-button");
+    private final By firstNameIsRequiredValidationMessage = By.id("FirstName-error");
+    private final By lastNameIsRequiredValidationMessage = By.id("LastName-error");
+    private final By emailIsRequiredValidationMessage = (By.id("Email-error"));
 
-    By buttonRegister = By.id("register-button");
-    By firstNameIsRequiredValidationMessage = By.id("FirstName-error");
-    By lastNameIsRequiredValidationMessage = By.id("LastName-error");
+    By passwordIsRequiredValidationMessage = By.id("Password-error");
+    By confirmPasswordIsRequiredValidationMessage = By.id("ConfirmPassword-error");
+
 
 
     public boolean sendKeysToFirstName(String firstName){
@@ -48,6 +52,15 @@ public class RegistrationPage extends BasePage{
 
     public String getLastNameIsRequiredValidationMessage(){
         return getElementText(lastNameIsRequiredValidationMessage);
+    }
+    public String getEmailIsRequiredValidationMessage(){
+        return getElementText(emailIsRequiredValidationMessage);
+    }
+    public String getPasswordIsRequiredValidationMessage(){
+        return getElementText(passwordIsRequiredValidationMessage);
+    }
+    public String getConfirmPasswordIsRequiredValidationMessage(){
+        return getElementText(confirmPasswordIsRequiredValidationMessage);
     }
 
 }

@@ -8,34 +8,35 @@ import utilities.RandomDataGenerator;
 
 import static org.testng.AssertJUnit.assertTrue;
 
-public class validateUserRegistrationIT extends BaseClass {
+public class verifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseClass {
 
     @Test
-    public void shouldVerifyUserRegistration_whenUserClickRegisterButton(){
+    public void shouldVerifyProductCheckoutFunctionality_whenNewUserSignup(){
         HomePage homePage = new HomePage(driver);
-        assertTrue("unable to click on Register Link",homePage.clickRegisterLink());
+        assertTrue("unable to click on 'Register' Link",homePage.clickRegisterLink());
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
-        assertTrue("Unable to enter test in 'First Name' field", registrationPage.sendKeysToFirstName(RandomDataGenerator.randomString()));
-        assertTrue("Unable to enter test in 'Last Name' field", registrationPage.sendKeysToLastName(RandomDataGenerator.randomString()));
+        assertTrue("unable to enter text in 'First Name:' field", registrationPage.sendKeysToFirstName(RandomDataGenerator.randomString()));
+        assertTrue("unable to enter text in 'Last Name:' field", registrationPage.sendKeysToLastName(RandomDataGenerator.randomString()));
         String email = RandomDataGenerator.randomAlphaNumeric()+".com";
-        assertTrue("Unable to enter test in 'Email' field", registrationPage.sendKeysToEmail(email));
+        assertTrue("unable to enter text in 'Email:' field", registrationPage.sendKeysToEmail(email));
         //registerPage.scrollToCompanyName();
-        assertTrue("Unable to enter test in 'Company Name' field", registrationPage.sendKeysToCompanyName());
+        assertTrue("unable to enter text in 'Company Name:' field", registrationPage.sendKeysToCompanyName());
         String password = RandomDataGenerator.randomString();
-        assertTrue("Unable to enter test in 'Password' field", registrationPage.sendKeysToPassword(password));
-        assertTrue("Unable to enter test in 'Confirm Password' field", registrationPage.sendKeysToConfirmPassword(password));
-        assertTrue("Unable to click on 'Register' button", registrationPage.clickRegisterButton());
+        assertTrue("unable to enter text in 'Password:' field", registrationPage.sendKeysToPassword(password));
+        assertTrue("unable to enter text in 'Confirm Password:' field", registrationPage.sendKeysToConfirmPassword(password));
+        assertTrue("unable to click on 'REGISTER' button", registrationPage.clickRegisterButton());
 
         RegistrationResultPage registrationResultPage = new RegistrationResultPage(driver);
         String registerResulExpectedMessage = "Your registration completed";
-        Assert.assertEquals(registrationResultPage.getRegisterResultText(),registerResulExpectedMessage,"Unable to verify Register Result message");
+        Assert.assertEquals(registrationResultPage.getRegisterResultText(),registerResulExpectedMessage,"unable to verify Register Result message");
 
-        homePage.clickLoginLink();
+        assertTrue("unable to click on 'Log in' link",homePage.clickLoginLink());
+
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.sendKeysToEmail(email);
-        loginPage.sendKeysToPassword(password);
-        loginPage.clickLoginButton();
+        assertTrue("unable to enter text in 'Email:' field",loginPage.sendKeysToEmail(email));
+        assertTrue("unable to enter text in 'Password:' field",loginPage.sendKeysToPassword(password));
+        assertTrue("unable to click on 'LOG IN' button",loginPage.clickLoginButton());
 
         homePage.clickSearchBox("Asus N551JK-XO076H Laptop");
         homePage.clickFirstElement();

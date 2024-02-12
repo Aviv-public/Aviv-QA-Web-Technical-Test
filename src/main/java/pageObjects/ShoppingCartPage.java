@@ -8,9 +8,9 @@ public class ShoppingCartPage extends BasePage{
         super(driver);
     }
 
-    By pageTitle = By.xpath("//h1[normalize-space()='Shopping cart']");
-    By termOfServiceButton = By.name("termsofservice");
-    By checkoutButton = By.id("checkout");
+    private final By pageTitle = By.xpath("//h1[normalize-space()='Shopping cart']");
+    private final By termOfServiceButton = By.name("termsofservice");
+    private final By checkoutButton = By.id("checkout");
 
     public boolean confirmPageTitle(){
         return confirmElementIsVisible(pageTitle);

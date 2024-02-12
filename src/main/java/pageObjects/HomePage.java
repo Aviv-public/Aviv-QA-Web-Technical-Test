@@ -9,22 +9,21 @@ public class HomePage extends BasePage{
         super(driver);
     }
 
-    By linkRegister = By.xpath("//a[normalize-space()='Register']");
-
-    By linkLogin = By.linkText("Log in");
-    By searchTxt = By.id("small-searchterms");
-    By firstElement = By.xpath("(//li[@class='ui-menu-item'])[1]");
+    private final By REGISTER_LINK = By.xpath("//a[normalize-space()='Register']");
+    private final By LOGIN_LINK = By.linkText("Log in");
+    private final By SEARCH_STORE_PLACEHOLDER = By.id("small-searchterms");
+    private final By firstElement = By.xpath("(//li[@class='ui-menu-item'])[1]");
 
 
     public boolean clickRegisterLink(){
-        return clickElement(linkRegister);
+        return clickElement(REGISTER_LINK);
     }
 
     public boolean clickLoginLink(){
-        return clickElement(linkLogin);
+        return clickElement(LOGIN_LINK);
     }
     public boolean clickSearchBox(String laptop){
-        return sendKeysToElement(searchTxt,laptop);
+        return sendKeysToElement(SEARCH_STORE_PLACEHOLDER,laptop);
     }
     public boolean clickFirstElement(){
         return clickElement(firstElement);

@@ -8,9 +8,9 @@ public class ProductDetailsPage extends BasePage{
         super(driver);
     }
 
-    By addToCartButton = By.id("add-to-cart-button-5");
-    By successMessage = By.xpath("//p[contains(normalize-space(),'The product has been added to your')]");
-    By shoppingCartLink = By.xpath("//span[@class='cart-label'][text()='Shopping cart']");
+    private final By addToCartButton = By.id("add-to-cart-button-5");
+    private final By successMessage = By.xpath("//p[contains(normalize-space(),'The product has been added to your')]");
+    private final By shoppingCartLink = By.xpath("//span[@class='cart-label'][text()='Shopping cart']");
 
     public boolean clickAddToCardButton(){
         return clickElement(addToCartButton);

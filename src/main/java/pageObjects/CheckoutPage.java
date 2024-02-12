@@ -8,18 +8,18 @@ public class CheckoutPage extends BasePage{
         super(driver);
     }
 
-    By pageTitle = By.xpath("//h1[normalize-space()='Checkout']");
-    By billingAddressTitle = By.xpath("//h2[normalize-space()='Billing address']");
-    By countryDropDown = By.xpath("//select[@id='BillingNewAddress_CountryId']");
-    By cityTxt = By.id("BillingNewAddress_City");
-    By address1Txt = By.id("BillingNewAddress_Address1");
-    By zipPostalCodeTxt = By.id("BillingNewAddress_ZipPostalCode");
-    By phoneNumberTxt = By.id("BillingNewAddress_PhoneNumber");
-    By billingContinueButton = By.cssSelector("button.button-1.new-address-next-step-button");
-    By shippingContinueButton = By.cssSelector("button.button-1.shipping-method-next-step-button");
-    By paymentMethodContinueButton = By.cssSelector("button.button-1.payment-method-next-step-button");
-    By paymentInfoContinueButton = By.cssSelector("button.button-1.payment-info-next-step-button");
-    By confirmButton = By.cssSelector("button.button-1.confirm-order-next-step-button");
+    private final By pageTitle = By.xpath("//h1[normalize-space()='Checkout']");
+    private final By billingAddressTitle = By.xpath("//h2[normalize-space()='Billing address']");
+    private final By countryDropDown = By.xpath("//select[@id='BillingNewAddress_CountryId']");
+    private final By cityTxt = By.id("BillingNewAddress_City");
+    private final By address1Txt = By.id("BillingNewAddress_Address1");
+    private final By zipPostalCodeTxt = By.id("BillingNewAddress_ZipPostalCode");
+    private final By phoneNumberTxt = By.id("BillingNewAddress_PhoneNumber");
+    private final By billingContinueButton = By.cssSelector("button.button-1.new-address-next-step-button");
+    private final By shippingContinueButton = By.cssSelector("button.button-1.shipping-method-next-step-button");
+    private final By paymentMethodContinueButton = By.cssSelector("button.button-1.payment-method-next-step-button");
+    private final By paymentInfoContinueButton = By.cssSelector("button.button-1.payment-info-next-step-button");
+    private final By confirmButton = By.cssSelector("button.button-1.confirm-order-next-step-button");
 
     public boolean confirmPageTitle(){
         return confirmElementIsVisible(pageTitle);

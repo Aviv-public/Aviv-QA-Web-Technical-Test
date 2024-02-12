@@ -8,9 +8,9 @@ public class LoginPage extends BasePage{
         super(driver);
     }
 
-    By emailTxt = By.id("Email");
-    By passwordTxt = By.id("Password");
-    By loginButton = By.xpath("//button[normalize-space()='Log in']");
+    private final By emailTxt = By.id("Email");
+    private final By passwordTxt = By.id("Password");
+    private final By loginButton = By.xpath("//button[normalize-space()='Log in']");
 
     public boolean sendKeysToEmail(String email){
         return sendKeysToElement(emailTxt,email);
