@@ -9,15 +9,19 @@ public class ProductDetailsPage extends BasePage{
     }
 
     private final By addToCartButton = By.id("add-to-cart-button-5");
-    private final By successMessage = By.xpath("//p[contains(normalize-space(),'The product has been added to your')]");
+    private final By successMessage = By.xpath("//div[@class='bar-notification success']");
     private final By shoppingCartLink = By.xpath("//span[@class='cart-label'][text()='Shopping cart']");
 
-    public boolean clickAddToCardButton(){
+    public boolean clickAddToCartButton(){
         return clickElement(addToCartButton);
     }
 
-    public boolean confirmSuccessMessage(){
+/*    public boolean confirmSuccessMessage(){
         return confirmElementIsVisible(successMessage);
+    }*/
+
+    public String get(){
+        return getElementText(successMessage);
     }
 
     public boolean clickShoppingCartLink(){

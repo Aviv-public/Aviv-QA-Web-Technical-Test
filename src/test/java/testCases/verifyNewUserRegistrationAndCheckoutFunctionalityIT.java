@@ -38,31 +38,38 @@ public class verifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseCla
         assertTrue("unable to enter text in 'Password:' field",loginPage.sendKeysToPassword(password));
         assertTrue("unable to click on 'LOG IN' button",loginPage.clickLoginButton());
 
-        homePage.clickSearchBox("Asus N551JK-XO076H Laptop");
-        homePage.clickFirstElement();
+        assertTrue("unable to enter text in 'Search store' placeholder",homePage.sendKeysToSearchStorePlaceholder("Asus N551JK-XO076H Laptop"));
+        assertTrue("unable to click on first element in Search store placeholder",homePage.clickFirstElementInSearchStorePlaceholder());
+
         ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
-        productDetailsPage.clickAddToCardButton();
-        //productDetailsPage.confirmSuccessMessage();
-        productDetailsPage.clickShoppingCartLink();
+        assertTrue("unable to click on 'ADD TO CART' button",productDetailsPage.clickAddToCartButton());
+        //assertTrue("Success Message",productDetailsPage.confirmSuccessMessage());
+        //System.out.println(productDetailsPage.get());
+        assertTrue("unable to click on 'Shopping cart' link",productDetailsPage.clickShoppingCartLink());
+
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        shoppingCartPage.confirmPageTitle();
-        shoppingCartPage.clickTermOfServiceButton();
-        shoppingCartPage.clickCheckoutButton();
+        assertTrue("unable to confirm 'Shopping cart' page title",shoppingCartPage.confirmShoppingCartPageTitle());
+        assertTrue("unable to click term of service checkbox",shoppingCartPage.clickTermOfServiceCheckbox());
+        assertTrue("unable to click 'CHECKOUT' button",shoppingCartPage.clickCheckoutButton());
 
         CheckoutPage checkoutPage = new CheckoutPage(driver);
-        checkoutPage.confirmPageTitle();
-        checkoutPage.confirmBillingAddressTitle();
+        assertTrue("unable to confirm 'Checkout' page title",checkoutPage.confirmCheckoutPageTitle());
+        assertTrue("unable to confirm 'Billing address' header",checkoutPage.confirmBillingAddressHeader());
         String countryName="Germany";
-        checkoutPage.selectCountryDropDownValueByText(countryName);
+        assertTrue("unable to select 'Germany' from 'Country:' dropdown",checkoutPage.selectCountryDropDownValueByText(countryName));
         String city = "Berlin";
-        checkoutPage.sendKeysToCityTxt(city);
-        checkoutPage.sendKeysToAddress1Txt(RandomDataGenerator.randomString());
-        checkoutPage.sendKeysZipPostalCodeTxt("12345");
-        checkoutPage.sendKeysPhoneNumberTxt("1234567890");
-        checkoutPage.clickBillingContinueButton();
-        checkoutPage.clickShippingContinueButton();
-        checkoutPage.clickPaymentMethodContinueButton();
-        checkoutPage.clickPaymentInfoContinueButton();
+        assertTrue("unable to enter text in 'City' field",checkoutPage.sendKeysToCityTxt(city));
+        assertTrue("unable to enter text in 'Address 1:' field",checkoutPage.sendKeysToAddress1Txt(RandomDataGenerator.randomString()));
+        assertTrue("unable to enter text in 'Zip / postal code:' field",checkoutPage.sendKeysZipPostalCodeTxt("12345"));
+        assertTrue("unable to enter text in 'Phone number:' field",checkoutPage.sendKeysPhoneNumberTxt("1234567890"));
+        assertTrue("unable to click on Billing 'CONTINUE' button",checkoutPage.clickBillingContinueButton());
+        assertTrue("unable to click on Shipping 'CONTINUE' button",checkoutPage.clickShippingContinueButton());
+        assertTrue("unable to click on Payment Method 'CONTINUE' button",checkoutPage.clickPaymentMethodContinueButton());
+        assertTrue("unable to click on Payment Information 'CONTINUE' button",checkoutPage.clickPaymentInfoContinueButton());
         assertTrue("unable to click on 'CONFIRM, button",checkoutPage.clickConfirmButton());
+
+        OrderCompletedPage orderCompletedPage = new OrderCompletedPage(driver);
+        assertTrue("unable to confirm order completed page title",orderCompletedPage.confirmOrderCompletedPageTitle());
+        assertTrue("unable to verify success message",orderCompletedPage.confirmOrderProcessedSuccessMessage());
     }
 }

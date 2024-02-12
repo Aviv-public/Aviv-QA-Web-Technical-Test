@@ -8,8 +8,8 @@ public class CheckoutPage extends BasePage{
         super(driver);
     }
 
-    private final By pageTitle = By.xpath("//h1[normalize-space()='Checkout']");
-    private final By billingAddressTitle = By.xpath("//h2[normalize-space()='Billing address']");
+    private final By checkoutPageTitle = By.xpath("//h1[normalize-space()='Checkout']");
+    private final By billingAddressHeader = By.xpath("//h2[normalize-space()='Billing address']");
     private final By countryDropDown = By.xpath("//select[@id='BillingNewAddress_CountryId']");
     private final By cityTxt = By.id("BillingNewAddress_City");
     private final By address1Txt = By.id("BillingNewAddress_Address1");
@@ -21,11 +21,11 @@ public class CheckoutPage extends BasePage{
     private final By paymentInfoContinueButton = By.cssSelector("button.button-1.payment-info-next-step-button");
     private final By confirmButton = By.cssSelector("button.button-1.confirm-order-next-step-button");
 
-    public boolean confirmPageTitle(){
-        return confirmElementIsVisible(pageTitle);
+    public boolean confirmCheckoutPageTitle(){
+        return confirmElementIsVisible(checkoutPageTitle);
     }
-    public boolean confirmBillingAddressTitle(){
-        return confirmElementIsVisible(billingAddressTitle);
+    public boolean confirmBillingAddressHeader(){
+        return confirmElementIsVisible(billingAddressHeader);
     }
     public boolean selectCountryDropDownValueByText(String countryName){
         return selectElementByText(countryDropDown,countryName);

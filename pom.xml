@@ -13,8 +13,8 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <login.url>https://demo.nopcommerce.com/</login.url>
-        <wait.default>10</wait.default>
-        <wait.long>40</wait.long>
+        <wait.default>5</wait.default>
+        <wait.long>10</wait.long>
     </properties>
 
     <build>

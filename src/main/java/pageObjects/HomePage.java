@@ -22,10 +22,10 @@ public class HomePage extends BasePage{
     public boolean clickLoginLink(){
         return clickElement(LOGIN_LINK);
     }
-    public boolean clickSearchBox(String laptop){
+    public boolean sendKeysToSearchStorePlaceholder(String laptop){
         return sendKeysToElement(SEARCH_STORE_PLACEHOLDER,laptop);
     }
-    public boolean clickFirstElement(){
+    public boolean clickFirstElementInSearchStorePlaceholder(){
         return clickElement(firstElement);
     }
 }

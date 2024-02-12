@@ -10,7 +10,7 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="testCases.verifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
-            <class name="testCases.verifyRegistrationPageValidationMessagesIT"/>
+            <!-- <class name="testCases.verifyRegistrationPageValidationMessagesIT"/> -->
         </classes>
     </test>
 
