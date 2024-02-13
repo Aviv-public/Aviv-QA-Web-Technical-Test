@@ -14,10 +14,13 @@ public class verifyRegistrationPageValidationMessagesIT extends BaseClass {
     @Test
     public void shouldVerifyFieldValidationMessageOnRegistrationPageWithBlankFields_whenUserClickRegisterButton() {
 
+        //Click on the "Register" link
         HomePage homePage = new HomePage(driver);
         assertTrue("unable to confirm 'nopCommerce' logo",homePage.confirmNopCommerceLogoIsVisible());
         assertTrue("unable to click on 'Register' Link", homePage.clickRegisterLink());
 
+        //Keeping all the field blank click on "Register" button
+        //Verify that the user is not registered, and an appropriate error/validation message is displayed.
         RegistrationPage registrationPage = new RegistrationPage(driver);
         assertTrue("unable to confirm 'Register' page title",registrationPage.confirmRegistrationPageTitleIsVisible());
         assertTrue("unable to click on 'REGISTER' button", registrationPage.clickRegisterButton());
@@ -38,11 +41,12 @@ public class verifyRegistrationPageValidationMessagesIT extends BaseClass {
 
     @Test
     public void shouldVerifyPasswordFieldValidationMessageOnRegistrationPage_whenUserMismatchedPassword() {
-
+        //Click on the "Register" link
         HomePage homePage = new HomePage(driver);
         assertTrue("unable to confirm 'nopCommerce' logo",homePage.confirmNopCommerceLogoIsVisible());
         assertTrue("unable to click on 'Register' Link", homePage.clickRegisterLink());
 
+        //Fill in valid information for a new user (First Name, Last Name, Email Address, company name)
         RegistrationPage registrationPage = new RegistrationPage(driver);
         assertTrue("unable to confirm 'Register' page title",registrationPage.confirmRegistrationPageTitleIsVisible());
         assertTrue("unable to enter text in 'First Name:' field", registrationPage.sendKeysToFirstName(RandomDataGenerator.randomFirstName()));
@@ -51,11 +55,13 @@ public class verifyRegistrationPageValidationMessagesIT extends BaseClass {
         assertTrue("unable to enter text in 'Email:' field", registrationPage.sendKeysToEmail(email));
         assertTrue("unable to enter text in 'Company Name:' field", registrationPage.sendKeysToCompanyName());
 
+        //Generate different passwords for both the password and confirmation password fields.
         assertTrue("unable to enter text in 'Password:' field", registrationPage.sendKeysToPassword(RandomDataGenerator.randomPassword()));
         assertTrue("unable to enter text in 'Confirm Password:' field", registrationPage.sendKeysToConfirmPassword(RandomDataGenerator.randomPassword()));
 
         assertTrue("unable to click on 'REGISTER' button", registrationPage.clickRegisterButton());
 
+        //Verify that the user is not registered, and an appropriate error message is displayed
         String passwordExpectedMessage = "The password and confirmation password do not match.";
         Assert.assertEquals(registrationPage.getConfirmPasswordIsRequiredValidationMessage(), passwordExpectedMessage,"Unable to verify 'Confirm password:' validation message");
     }
