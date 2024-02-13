@@ -58,7 +58,6 @@ class CheckoutPage {
     async enterBillingAndShippingAddressExistingUser(country, state, city, address, zipcode, phonenumber) {
         await this.shiptosameaddrescheckbox.isEnabled()
         await this.shiptosameaddrescheckbox.click()
-        await this.billingaddressselect.isEnabled()
         await this.continue()
         await this.shippingaddressdropdown.selectOption('New Address')
         await this.shippingcountrylist.selectOption(country)

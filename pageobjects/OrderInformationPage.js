@@ -10,9 +10,7 @@ class OrderInformationPage {
 
 
     async orderPlacedSuccessMsg() {
-        if (await this.ordercompleted.locator('div.title strong').isEnabled()) {
-            return await this.ordercompleted.locator('div.title strong').textContent()
-        }
+        return await this.ordercompleted.locator('div.title strong').textContent()
     }
 
     async getOrder() {

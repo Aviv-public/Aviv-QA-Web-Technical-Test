@@ -7,18 +7,17 @@ class DepartmentPage {
         this.page = page
         this.addtocart = page.locator('.add-to-cart-button')
         this.productaddsuccessmsg = page.locator('p.content')
-        this.enterpriceinput = page.locator('.enter-price-input')
-        this.recipientname = page.locator('.recipient-name')
-        this.sendername = page.locator('.sender-name')
-        this.recipientemail = page.locator('.recipient-email')
-        this.senderemail = page.locator('.sender-email')
+        this.enterpriceinput = page.locator('input.enter-price-input')
+        this.recipientname = page.locator('input.recipient-name')
+        this.sendername = page.locator('input.sender-name')
+        this.recipientemail = page.locator('input.recipient-email')
+        this.senderemail = page.locator('input.sender-email')
         this.rentstartdate = page.locator('input#rental_start_date_40')
         this.datepickermonth = page.locator('span.ui-datepicker-month')
         this.datepickeryear = page.locator('span.ui-datepicker-year')
         this.next = page.locator("a[data-handler='next']")
         this.rentenddate = page.locator('input#rental_end_date_40')
-        this.itembox = page.locator('.item-box')
-        this.qtyinput = page.locator('.qty-input')
+        this.itembox = page.locator('div.item-box')
         this.color = page.locator('.attribute-square')
         this.inputqty = page.locator('input.qty-input')
         this.cameravariantname = page.locator('div.variant-name')
@@ -109,41 +108,41 @@ class DepartmentPage {
             await this.addToCart()
         }
         if (productText === products.NOTEBOOK_PRODUCT_1) {
-            await this.qtyinput.fill("")
-            await this.qtyinput.fill(productQty)
+            await this.inputqty.fill("")
+            await this.inputqty.fill(productQty)
             await this.addToCart()
         }
         if (productText === products.CAMERA_PRODUCT_1) {
-            await this.qtyinput.nth(0).fill(productQty)
+            await this.inputqty.nth(0).fill(productQty)
             this.cameraVariation = await this.cameravariantname.nth(0).textContent()
             await this.addtocart.nth(0).click()
             await this.selectedCameraVariation()
         }
         if (productText === products.SHOES_PRODUCT_1) {
             await this.selectProductOption(9, products.SHOES_PRODUCT_1_SIZE)
-            await this.qtyinput.fill(productQty)
+            await this.inputqty.fill(productQty)
             await this.addToCart()
         }
         if (productText === products.SHOES_PRODUCT_2) {
             await this.selectProductOption(6, products.SHOES_PRODUCT_2_SIZE)
             await this.selectProductOption(7, products.SHOES_PRODUCT_2_COLOR)
             await this.color.nth(1).click()
-            await this.qtyinput.fill(productQty)
+            await this.inputqty.fill(productQty)
             await this.addToCart()
         }
         if (productText === products.APPAREL_PRODUCT_1) {
             await this.enterCustomProductText(12, products.APPAREL_PRODUCT_1_CUSTOM_TEXT)
-            await this.qtyinput.fill(productQty)
+            await this.inputqty.fill(productQty)
             await this.addToCart()
         }
         if (productText === products.APPAREL_PRODUCT_2) {
             await this.selectProductOption(11, products.APPAREL_PRODUCT_2_SIZE)
-            await this.qtyinput.fill(productQty)
+            await this.inputqty.fill(productQty)
             await this.addToCart()
         }
         if (productText === products.ACCESSORIES_PRODUCT_1) {
             await this.selectProductOption(13, products.ACCESSORIES_PRODUCT_1_SIZE)
-            await this.qtyinput.fill(productQty)
+            await this.inputqty.fill(productQty)
             await this.addToCart()
         }
     }
