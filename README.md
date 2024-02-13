@@ -35,7 +35,7 @@ The automation follows the principles of the Page Object Model (POM) and Data-Dr
     Status : Completed
 ##### Scenario 2: Invalid Signup Attempt
     Test : verifyRegistrationPageValidationMessagesIT
-    Status : Completed (Refactoring In Progress)
+    Status : Completed
 ##### Scenario 3: Existing User Login and Checkout
     Test : In-Progress
     Status : In-Progress
