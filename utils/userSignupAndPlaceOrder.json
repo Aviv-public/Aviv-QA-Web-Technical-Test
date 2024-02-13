@@ -1,6 +1,6 @@
 [
     {
-        "useremail": "test1@gmail.com",
+        "useremail": "test1@aviv.com",
         "registrationSuccessMessageExpected": "Your registration completed",
         "productAdditionSuccessActual": "The product has been added to your shopping cart",
         "category": "Computers",
@@ -22,7 +22,7 @@
         "orderPlacedSuccessMsg": "Your order has been successfully processed!"
     },
     {
-        "useremail": "test2@gmail.com",
+        "useremail": "test2@aviv.com",
         "registrationSuccessMessageExpected": "Your registration completed",
         "productAdditionSuccessActual": "The product has been added to your shopping cart",
         "category": "Computers",

@@ -2,7 +2,7 @@ const { test } = require('@playwright/test')
 
 exports.customtest = test.extend({
     testDataForOrder: {
-        useremail: "test3@gmail.com",
+        useremail: "test3@aviv.com",
         registrationSuccessMessageExpected: 'Your registration completed',
         productAdditionSuccessActual: 'The product has been added to your shopping cart',
         category: "Computers",

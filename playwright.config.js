@@ -18,10 +18,14 @@ module.exports = defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 3 : undefined,
+  workers: process.env.CI ? 7 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['html', { outputFolder: 'reports' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  timeout:30 * 1000,
+  expect:{
+    timeout:8000
+  },
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: process.env.URL ? process.env.URL : "https://demo.nopcommerce.com/" ,
