@@ -55,8 +55,11 @@ class DepartmentPage {
         await this.itembox.filter({ hasText: "" + productText + "" }).getByRole('button', { name: 'Add to cart' }).first().click()
 
         if (productText === products.DIGITAL_DOWNLOAD_PRODUCT__1 || productText === products.DIGITAL_DOWNLOAD_PRODUCT__2) {
-            await this.enterpriceinput.fill(products.DIGITAL_DOWNLOAD_PRODUCT__PRICE_INPUT)
-            await this.page.locator('input.qty-input').fill(productQty)
+
+            await this.enterpriceinput.isVisible().then(async()=>{
+                await this.enterpriceinput.fill(products.DIGITAL_DOWNLOAD_PRODUCT__PRICE_INPUT)
+                await this.page.locator('input.qty-input').fill(productQty)
+            })
             await this.addToCart()
         }
         if (productText === products.GIFT_CARD_PRODUCT_1 || productText === products.GIFT_CARD_PRODUCT_2) {
