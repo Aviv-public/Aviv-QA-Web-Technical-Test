@@ -3,7 +3,7 @@ const { POManager } = require('../pageobjects/POManager')
 const dataset = JSON.parse(JSON.stringify(require('../utils/userSignupAndPlaceOrder.json')))
 
 for(const data of dataset){
-test.slow(`user signup and complete the checkout - shipping address different from billing address - CC Payment for ${data.useremail}`, async ({ page }) => {
+test(`user signup and complete the checkout - shipping address different from billing address - CC Payment for ${data.useremail}`, async ({ page }) => {
     const poManager = new POManager(page)
     const landingPage = poManager.getlandingPage()
     const loginPage = poManager.getloginpage()

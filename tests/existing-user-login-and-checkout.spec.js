@@ -13,7 +13,7 @@ test.skip('user signup ', async ({ page }) => {
     await expect(await registrationPage.registerUser(userdetails.USER_EMAIL)).toHaveText(userdetails.REGISTRATION_MSG_SUCCESS)
 })
 
-customtest.slow(`existing user sign in and complete the checkout - CC Payment`, async ({ page , testDataForOrder }) => {
+customtest(`existing user sign in and complete the checkout - CC Payment`, async ({ page , testDataForOrder }) => {
     const poManager = new POManager(page)
     const landingPage = poManager.getlandingPage()
     const departmentPage = poManager.getdepartmentpage()

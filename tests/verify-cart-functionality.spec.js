@@ -3,7 +3,7 @@ const { POManager } = require('../pageobjects/POManager')
 const {customtestmultipleproducts} = require('../utils/test-base')
 
 
-customtestmultipleproducts.slow('verify cart functionality - Computers + Camera + Apparel + Jewelry + Digital Downloads + Gift Cards', async ({ page, multipleproducts }) => {
+customtestmultipleproducts('verify cart functionality - Computers + Camera + Apparel + Jewelry + Digital Downloads + Gift Cards', async ({ page, multipleproducts }) => {
     const poManager = new POManager(page)
     const landingPage = poManager.getlandingPage()
     const departmentPage = poManager.getdepartmentpage()
