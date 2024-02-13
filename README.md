@@ -17,6 +17,7 @@ The automation follows the principles of the Page Object Model (POM) and Data-Dr
 ### Continuous Integration (CI) with Jenkins
 - This project is set up for CI using Jenkins.
 - Jenkins will trigger a new build whenever changes are pushed to the repository.
+- Jenkins hosted on webserver - https://busy-showers-clap.loca.lt/ with the help of https://localtunnel.github.io/www
 
 ### Reporting with Extent Report
 - Extent Report is used for comprehensive test reporting.
