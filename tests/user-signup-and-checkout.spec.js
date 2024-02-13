@@ -16,7 +16,6 @@ test(`user signup and complete the checkout - shipping address different from bi
     await landingPage.clickLoginLink()
     await loginPage.loginuser(data.useremail)
     await departmentPage.clickOnSubcategoryAndAddToCart(data.category, data.subCategory, data.productName)
-    //await expect(await departmentPage.productAdditionSuccessMsg()).toHaveText(data.productAdditionSuccessActual)
     await departmentPage.clickOnShoppingCart()
     await shoppingCartPage.productDetailsFromCartPage(data.productName)
     await shoppingCartPage.updateCartWithProductDetails()

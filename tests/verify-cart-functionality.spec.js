@@ -1,4 +1,3 @@
-const { test, expect } = require("@playwright/test")
 const { POManager } = require('../pageobjects/POManager')
 const {customtestmultipleproducts} = require('../utils/test-base')
 
@@ -11,17 +10,11 @@ customtestmultipleproducts('verify cart functionality - Computers + Camera + App
     const productNameList = []   
     await landingPage.goTo()
     await departmentPage.clickOnSubcategoryAndAddToCart("Computers","Notebooks",multipleproducts.productNameNotebook,multipleproducts.productQty)
-    //await expect(await departmentPage.productAdditionSuccessMsg()).toHaveText(multipleproducts.productAdditionSuccessActual)
     await departmentPage.clickOnSubcategoryAndAddToCart("Electronics","Camera & photo",multipleproducts.productNameElectronics,multipleproducts.productQty)
-    //await expect(await departmentPage.productAdditionSuccessMsg()).toHaveText(multipleproducts.productAdditionSuccessActual)
     await departmentPage.clickOnSubcategoryAndAddToCart("Apparel","Shoes",multipleproducts.productNameApparel,multipleproducts.productQty)
-    //await expect(await departmentPage.productAdditionSuccessMsg()).toHaveText(multipleproducts.productAdditionSuccessActual)
     await departmentPage.clickOnCategoryAndRent("Jewelry",multipleproducts.productNameJewelry,multipleproducts.rentStartDate,multipleproducts.rentEndDate,multipleproducts.productQty)
-    //await expect(await departmentPage.productAdditionSuccessMsg()).toHaveText(multipleproducts.productAdditionSuccessActual)
     await departmentPage.clickOnCategoryAndAddToCart("Digital downloads",multipleproducts.productNameDigitalDownloads,multipleproducts.productQty)
-    //await expect(await departmentPage.productAdditionSuccessMsg()).toHaveText(multipleproducts.productAdditionSuccessActual)
     await departmentPage.clickOnCategoryAndAddToCart("Gift Cards",multipleproducts.productNameGiftCard,multipleproducts.productQty)
-    //await expect(await departmentPage.productAdditionSuccessMsg()).toHaveText(multipleproducts.productAdditionSuccessActual)
     await departmentPage.clickOnShoppingCart()
     productNameList.push(multipleproducts.productNameNotebook)
     productNameList.push(await departmentPage.selectedCameraVariation())

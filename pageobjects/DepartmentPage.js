@@ -47,7 +47,7 @@ class DepartmentPage {
         return await this.productaddsuccessmsg
     }
     async clickOnShoppingCart() {
-        await this.page.getByRole('link', { name: 'shopping cart', exact: true }).click()
+        await this.page.locator('span.cart-label').click({ force: true })
     }
 
     async clickOnCategoryAndAddToCart(category, productText, productQty) {
@@ -78,16 +78,18 @@ class DepartmentPage {
     async clickOnCategoryAndRent(category, productText, startDate, endDate, productQty) {
         await this.page.getByRole('link', { name: "" + category + "" }).first().click()
         await this.itembox.filter({ hasText: "" + productText + "" }).getByRole('button', { name: 'Rent' }).first().click()
-        if (productText === products.JEWELRY_PRODUCT_1) {
-            await this.rentstartdate.click()
-            while (!(await this.datepickermonth.textContent() === startDate.split("-")[0] && await this.datepickeryear.textContent() === startDate.split("-")[1])) {
-                await this.next.click()
-            }
+        if (await productText === products.JEWELRY_PRODUCT_1) {
+            await this.rentstartdate.click().then(async () =>{
+                while (!(await this.datepickermonth.textContent() === startDate.split("-")[0] && await this.datepickeryear.textContent() === startDate.split("-")[1])) {
+                    await this.next.click()
+                }
+            })
             await this.page.locator("a[data-date='" + startDate.split("-")[2] + "']").click()
-            await this.rentenddate.click()
-            while (!(await this.datepickermonth.textContent() === endDate.split("-")[0] && await this.datepickeryear.textContent() === endDate.split("-")[1])) {
-                await this.page.locator("a[data-handler='next']").click()
-            }
+            await this.rentenddate.click().then(async () =>{
+                while (!(await this.datepickermonth.textContent() === endDate.split("-")[0] && await this.datepickeryear.textContent() === endDate.split("-")[1])) {
+                    await this.page.locator("a[data-handler='next']").click()
+                }
+            })
             await this.page.locator("a[data-date='" + endDate.split("-")[2] + "']").click()
             await this.inputqty.fill(productQty)
             await this.addToCart()
@@ -108,8 +110,10 @@ class DepartmentPage {
             await this.addToCart()
         }
         if (productText === products.NOTEBOOK_PRODUCT_1) {
-            await this.inputqty.fill("")
-            await this.inputqty.fill(productQty)
+            await this.inputqty.isVisible().then(async()=>{
+                await this.inputqty.fill("")
+                await this.inputqty.fill(productQty)
+            })
             await this.addToCart()
         }
         if (productText === products.CAMERA_PRODUCT_1) {
