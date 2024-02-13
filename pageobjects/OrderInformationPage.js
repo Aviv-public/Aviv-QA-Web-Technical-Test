@@ -3,14 +3,14 @@ class OrderInformationPage {
 
     constructor(page) {
         this.page = page
-        this.ordercompleted = page.locator('div.order-completed')
+        this.ordercompleted = page.locator('div.page.checkout-page.order-completed-page')
         this.orderdetail = page.locator('div.page-body')
         this.ordernumber = page.locator('div.details')
     }
 
 
     async orderPlacedSuccessMsg() {
-        return await this.ordercompleted.locator('div.title strong').textContent()
+        return await this.ordercompleted.locator('strong').nth(0).textContent()
     }
 
     async getOrder() {

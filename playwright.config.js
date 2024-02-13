@@ -48,11 +48,11 @@ module.exports = defineConfig({
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
-    },
+    }
     /*{
       name: 'chromiumHead',
       use: { ...devices['Desktop Chrome'], headless:false },
-    },*/
+    }*/,
 
     /* Test against mobile viewports. */
     // {
