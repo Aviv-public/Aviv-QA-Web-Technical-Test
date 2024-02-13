@@ -44,6 +44,10 @@ The automation follows the principles of the Page Object Model (POM) and Data-Dr
     Status : In-Progress
 
 ### Future Improvements
+#### To configure the test environment for parallel test execution:
+1. DOCKER - We can configure Docker for parallel test execution, enabling compatibility across different operating systems and browser versions for increased flexibility and compatibility.
+   
+#### For enhanced test efficiency and code readability:
 1. We can add a method in the pageObjects class constructor to verify the visibility of the last-loaded element, ensuring the complete loading of the page.
 2. We can streamline page navigation by returning the pageObject class constructor within the event method.
 This eliminates the need for a separate line in the test class to create the constructor, instead, it can be assigned by calling this method.
