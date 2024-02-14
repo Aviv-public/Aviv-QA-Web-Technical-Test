@@ -11,6 +11,7 @@
         <classes>
             <class name="testCases.verifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
             <class name="testCases.verifyRegistrationPageValidationMessagesIT"/>
+            <class name="testCases.VerifyCartFunctionality"/>
         </classes>
     </test>
 

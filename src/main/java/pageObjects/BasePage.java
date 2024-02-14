@@ -85,4 +85,15 @@ public class BasePage {
             return false;
         }
     }
+
+    public boolean clearElement(By locator) {
+        try {
+            WebElement webElement = new WebDriverWait(driver, waitTimes.DEFAULT_WAIT).until(ExpectedConditions.visibilityOfElementLocated(locator));
+            webElement.clear();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
