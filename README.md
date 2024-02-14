@@ -17,6 +17,7 @@ The automation follows the principles of the Page Object Model (POM) and Data-Dr
 ### Continuous Integration (CI) with Jenkins
 - This project is set up for CI using Jenkins.
 - Jenkins will trigger a new build whenever changes are pushed to the repository.
+- Jenkins hosted on webserver - https://busy-showers-clap.loca.lt/ with the help of https://localtunnel.github.io/www
 
 ### Reporting with Extent Report
 - Extent Report is used for comprehensive test reporting.
@@ -54,5 +55,7 @@ This eliminates the need for a separate line in the test class to create the con
 3. We can enhance the process of defining page elements by replacing the use of the By class with a custom class, such as CC(By selector, String description).
 By employing this approach, we can create customized assertion messages directly in the BasePage methods.
 This eliminates the need to create Assert methods in the Test class and enhances the overall readability of the test steps.
+#### Static code analysis tool
+1. We can configured Checkstyle which is a static code analysis tool, to enforce coding standards, reducing redundant PR review suggestions during code review and ensuring a clean and consistent code style.
 
 ### Issues and Challenges
