@@ -1,0 +1,20 @@
+
+
+    {
+    "gender": "Female",
+    "fName": "TestFname",
+    "lName": "TestLName",
+    "dayInDOB": "15",
+    "monthInDOB": "September",
+    "yearInDOB": "1995",
+    "companyName": "Google",
+    "newsLetter": "True",
+    "password": "726345",
+    "country": "United States",
+    "state": "Alaska",
+    "city": "New York",
+    "address": "32, xyt street",
+    "postalCode": "23444",
+    "phone": "6780987"
+    
+}

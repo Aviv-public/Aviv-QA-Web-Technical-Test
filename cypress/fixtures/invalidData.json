@@ -1,0 +1,9 @@
+[{"invalidEmail": "%^*",
+    "invalidPassword": "###"
+},
+
+{
+    "invalidEmail": "%23",
+    "invalidPassword": "##-"  
+}
+]
