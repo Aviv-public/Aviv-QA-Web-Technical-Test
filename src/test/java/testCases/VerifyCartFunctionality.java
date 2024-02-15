@@ -1,6 +1,5 @@
 package testCases;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.*;
@@ -55,7 +54,13 @@ public class VerifyCartFunctionality extends BaseClass {
         assertTrue("unable to confirm 'Shopping cart' page title",shoppingCartPage.confirmShoppingCartPageTitleIsVisible());
 
         verifyProductQuantity("Asus N551JK-XO076H Laptop",2);
-        verifyProductQuantity("First Prize Pies",4);
+        verifyProductQuantity("First Prize Pies",4  );
+
+        modifyProductQuantity("Asus N551JK-XO076H Laptop",5);
+        modifyProductQuantity("First Prize Pies",5);
+
+        verifyProductQuantity("Asus N551JK-XO076H Laptop",5);
+        verifyProductQuantity("First Prize Pies",5);
 
     }
 
@@ -78,15 +83,21 @@ public class VerifyCartFunctionality extends BaseClass {
 
     public void verifyProductQuantity(String productName, int expectedQuantity){
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        System.out.println(shoppingCartPage.getProductQuantityByGivenProductName(productName));
-       String st = shoppingCartPage.getProductQuantityByGivenProductName(productName);
-        int actualQuantity = Integer.parseInt(st);
-        //System.out.println("Actual" + st);
-        //System.out.println(expectedQuantity);
-        //System.out.println(Integer.parseInt(st));
-        if (actualQuantity==expectedQuantity){
-            System.out.println("Test Pass");
-        }
+        String quantityAsString = shoppingCartPage.getProductQuantityByGivenProductName(productName);
+        int actualQuantity = Integer.parseInt(quantityAsString);
+        // Verify the quantity
+        Assert.assertEquals(actualQuantity, expectedQuantity,"Quantity mismatch for product: " + productName);
+    }
+
+    public void modifyProductQuantity(String productName, int newQuantity) {
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        shoppingCartPage.clearProductQuantity(productName);
+        shoppingCartPage.sendKeysProductQuantity(productName,newQuantity);
+        shoppingCartPage.clickUpdateShoppingCartButton();
+    }
+    public void removeProductFromCartAndVerify(String productName){
+
 
     }
+
 }
