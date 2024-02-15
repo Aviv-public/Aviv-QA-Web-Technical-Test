@@ -18,6 +18,14 @@ public class ShoppingCartPage extends BasePage{
 
     }
 
+    private By getRemoveButton_byGivenProductName(String productName){
+        return By.xpath("//td[contains(., '" + productName + "')]/following-sibling::td[@class='remove-from-cart']//button[@class='remove-btn']");
+    }
+
+    private By getProductNameLink_byGivenProductName(String productName){
+        return By.xpath("//a[@class='product-name'][normalize-space()='" + productName + "'");
+    }
+
     public boolean confirmShoppingCartPageTitleIsVisible(){
         return confirmElementIsVisible(SHOPPING_CART_PAGE_TITLE);
     }
@@ -41,5 +49,12 @@ public class ShoppingCartPage extends BasePage{
     }
     public boolean clickUpdateShoppingCartButton(){
         return clickElement(UPDATE_SHOPPING_CART_BUTTON);
+    }
+
+    public boolean click(String productName){
+        return clickElement(getRemoveButton_byGivenProductName(productName));
+    }
+    public boolean confirmProductNameLink(String productName){
+        return confirmElementIsVisible(getProductNameLink_byGivenProductName(productName));
     }
 }

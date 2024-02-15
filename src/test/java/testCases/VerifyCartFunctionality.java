@@ -6,6 +6,7 @@ import pageObjects.*;
 import testBase.BaseClass;
 import utilities.RandomDataGenerator;
 
+import static org.testng.AssertJUnit.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class VerifyCartFunctionality extends BaseClass {
@@ -62,6 +63,8 @@ public class VerifyCartFunctionality extends BaseClass {
         verifyProductQuantity("Asus N551JK-XO076H Laptop",5);
         verifyProductQuantity("First Prize Pies",5);
 
+        removeProductFromCartAndVerify("Asus N551JK-XO076H Laptop");
+
     }
 
     public void addProductToCart(String productName, int quantity ){
@@ -96,8 +99,9 @@ public class VerifyCartFunctionality extends BaseClass {
         shoppingCartPage.clickUpdateShoppingCartButton();
     }
     public void removeProductFromCartAndVerify(String productName){
-
-
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        shoppingCartPage.click(productName);
+        shoppingCartPage.clickUpdateShoppingCartButton();
+        assertFalse("Product '" + productName + "' is still present in the cart after removal",shoppingCartPage.confirmProductNameLink(productName));
     }
-
 }
