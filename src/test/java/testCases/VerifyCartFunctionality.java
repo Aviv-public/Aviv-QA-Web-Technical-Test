@@ -6,7 +6,6 @@ import pageObjects.*;
 import testBase.BaseClass;
 import utilities.RandomDataGenerator;
 
-import static org.testng.AssertJUnit.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class VerifyCartFunctionality extends BaseClass {
@@ -100,8 +99,8 @@ public class VerifyCartFunctionality extends BaseClass {
     }
     public void removeProductFromCartAndVerify(String productName){
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        shoppingCartPage.click(productName);
+        shoppingCartPage.clickRemoveButton(productName);
         shoppingCartPage.clickUpdateShoppingCartButton();
-        assertFalse("Product '" + productName + "' is still present in the cart after removal",shoppingCartPage.confirmProductNameLink(productName));
+        assertTrue("Product '" + productName + "' is still present in the cart after removal",shoppingCartPage.confirmProductNameLinkIsNotVisible(productName));
     }
 }

@@ -23,7 +23,7 @@ public class ShoppingCartPage extends BasePage{
     }
 
     private By getProductNameLink_byGivenProductName(String productName){
-        return By.xpath("//a[@class='product-name'][normalize-space()='" + productName + "'");
+        return By.xpath("//a[@class='product-name'][normalize-space()='" + productName + "']");
     }
 
     public boolean confirmShoppingCartPageTitleIsVisible(){
@@ -51,10 +51,10 @@ public class ShoppingCartPage extends BasePage{
         return clickElement(UPDATE_SHOPPING_CART_BUTTON);
     }
 
-    public boolean click(String productName){
+    public boolean clickRemoveButton(String productName){
         return clickElement(getRemoveButton_byGivenProductName(productName));
     }
-    public boolean confirmProductNameLink(String productName){
-        return confirmElementIsVisible(getProductNameLink_byGivenProductName(productName));
+    public boolean confirmProductNameLinkIsNotVisible(String productName){
+        return confirmElementIsNotVisible(getProductNameLink_byGivenProductName(productName));
     }
 }

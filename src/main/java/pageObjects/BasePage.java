@@ -107,4 +107,14 @@ public class BasePage {
             return "Failed to get text from Element.";
         }
     }
+
+    public boolean confirmElementIsNotVisible(By locator) {
+        try {
+            new WebDriverWait(driver, waitTimes.DEFAULT_WAIT).until(ExpectedConditions.invisibilityOfElementLocated(locator));
+            return true;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return false;
+        }
+    }
 }
