@@ -1,5 +1,6 @@
 package testCases;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.*;
@@ -43,20 +44,19 @@ public class VerifyCartFunctionality extends BaseClass {
         assertTrue("unable to enter text in 'Password:' field",loginPage.sendKeysToPassword(password));
         assertTrue("unable to click on 'LOG IN' button",loginPage.clickLoginButton());
 
-
         addProductToCart("Asus N551JK-XO076H Laptop",2);
         addProductToCart("First Prize Pies",4);
 
-        /*ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
-
+        ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
         assertTrue("unable to click on 'Shopping cart' link",productDetailsPage.clickShoppingCartLink());
 
         //Proceed to the checkout process
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
         assertTrue("unable to confirm 'Shopping cart' page title",shoppingCartPage.confirmShoppingCartPageTitleIsVisible());
-        assertTrue("unable to click term of service checkbox",shoppingCartPage.clickTermOfServiceCheckbox());
-        assertTrue("unable to click 'CHECKOUT' button",shoppingCartPage.clickCheckoutButton());
-*/
+
+        verifyProductQuantity("Asus N551JK-XO076H Laptop",2);
+        verifyProductQuantity("First Prize Pies",4);
+
     }
 
     public void addProductToCart(String productName, int quantity ){
@@ -74,6 +74,19 @@ public class VerifyCartFunctionality extends BaseClass {
         assertTrue("unable to click on 'ADD TO CART' button",productDetailsPage.clickAddToCartButton());
         String productAddedToShippingCartExpectedSuccessMessage = "The product has been added to your shopping cart";
         Assert.assertEquals(productDetailsPage.getProductAddedToShippingCartSuccessMessage(),productAddedToShippingCartExpectedSuccessMessage,"unable to verify product added to shipping card success message");
+    }
+
+    public void verifyProductQuantity(String productName, int expectedQuantity){
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        System.out.println(shoppingCartPage.getProductQuantityByGivenProductName(productName));
+       String st = shoppingCartPage.getProductQuantityByGivenProductName(productName);
+        int actualQuantity = Integer.parseInt(st);
+        //System.out.println("Actual" + st);
+        //System.out.println(expectedQuantity);
+        //System.out.println(Integer.parseInt(st));
+        if (actualQuantity==expectedQuantity){
+            System.out.println("Test Pass");
+        }
 
     }
 }

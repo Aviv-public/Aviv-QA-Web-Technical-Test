@@ -96,4 +96,15 @@ public class BasePage {
             return false;
         }
     }
+
+    public String getAttributeValue(By locator) {
+        try {
+            WebElement elementText = new WebDriverWait(driver, waitTimes.DEFAULT_WAIT)
+                    .until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return elementText.getAttribute("value");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Failed to get text from Element.";
+        }
+    }
 }
