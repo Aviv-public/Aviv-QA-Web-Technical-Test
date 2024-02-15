@@ -2,6 +2,9 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
+import static org.testng.AssertJUnit.assertTrue;
 
 public class ShoppingCartPage extends BasePage{
     public ShoppingCartPage(WebDriver driver) {
@@ -56,5 +59,24 @@ public class ShoppingCartPage extends BasePage{
     }
     public boolean confirmProductNameLinkIsNotVisible(String productName){
         return confirmElementIsNotVisible(getProductNameLink_byGivenProductName(productName));
+    }
+
+    public void verifyProductQuantity(String productName, int expectedQuantity){
+        String quantityAsString = getProductQuantityByGivenProductName(productName);
+        int actualQuantity = Integer.parseInt(quantityAsString);
+        // Verify the quantity
+        Assert.assertEquals(actualQuantity, expectedQuantity,"Quantity mismatch for product: " + productName);
+    }
+
+    public void modifyProductQuantity(String productName, int newQuantity) {
+        assertTrue("unable to clear product quantity text box",clearProductQuantity(productName));
+        assertTrue("unable to send keys for product quantity",sendKeysProductQuantity(productName,newQuantity));
+        assertTrue("unable to click on 'Update Shopping Cart' button",clickUpdateShoppingCartButton());
+    }
+
+    public void removeProductFromCartAndVerify(String productName){
+        assertTrue("unable to click on remove icon",clickRemoveButton(productName));
+        assertTrue("unable to click on 'Update Shopping Cart' button",clickUpdateShoppingCartButton());
+        assertTrue("Product '" + productName + "' is still present in the cart after removal",confirmProductNameLinkIsNotVisible(productName));
     }
 }

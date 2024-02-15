@@ -43,64 +43,38 @@ public class VerifyCartFunctionality extends BaseClass {
         assertTrue("unable to enter text in 'Password:' field",loginPage.sendKeysToPassword(password));
         assertTrue("unable to click on 'LOG IN' button",loginPage.clickLoginButton());
 
-        addProductToCart("Asus N551JK-XO076H Laptop",2);
-        addProductToCart("First Prize Pies",4);
-
+        //Add multiple products to the shopping cart.
+        String productName1 = "Asus N551JK-XO076H Laptop";
+        int quantity1 = 2;
+        homePage.searchAndSelectFirstElementInSearchStorePlaceholder(productName1);
         ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
+        productDetailsPage.addProductToCart(quantity1);
+
+        String productName2 = "First Prize Pies";
+        int quantity2 = 4;
+        homePage.searchAndSelectFirstElementInSearchStorePlaceholder(productName2);
+        productDetailsPage.addProductToCart(quantity2);
+
         assertTrue("unable to click on 'Shopping cart' link",productDetailsPage.clickShoppingCartLink());
 
         //Proceed to the checkout process
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
         assertTrue("unable to confirm 'Shopping cart' page title",shoppingCartPage.confirmShoppingCartPageTitleIsVisible());
 
-        verifyProductQuantity("Asus N551JK-XO076H Laptop",2);
-        verifyProductQuantity("First Prize Pies",4  );
+        //Verify that the correct products and quantities are displayed in the shopping cart.
+        shoppingCartPage.verifyProductQuantity(productName1,quantity1);
+        shoppingCartPage.verifyProductQuantity(productName2,quantity2);
 
-        modifyProductQuantity("Asus N551JK-XO076H Laptop",5);
-        modifyProductQuantity("First Prize Pies",5);
+        //Modify the quantity of a product.
+        int newQuantity = 5;
+        shoppingCartPage.modifyProductQuantity(productName1,newQuantity);
+        shoppingCartPage.modifyProductQuantity(productName2,newQuantity);
 
-        verifyProductQuantity("Asus N551JK-XO076H Laptop",5);
-        verifyProductQuantity("First Prize Pies",5);
+        //Verify that the correct products and quantities are displayed in the shopping cart.
+        shoppingCartPage.verifyProductQuantity(productName1,newQuantity);
+        shoppingCartPage.verifyProductQuantity(productName2,newQuantity);
 
-        removeProductFromCartAndVerify("Asus N551JK-XO076H Laptop");
-
-    }
-
-    public void addProductToCart(String productName, int quantity ){
-        HomePage homePage = new HomePage(driver);
-        //Search and Add a product to the shopping cart
-        assertTrue("unable to enter text in 'Search store' placeholder",homePage.sendKeysToSearchStorePlaceholder(productName));
-        assertTrue("unable to click on first element in Search store placeholder",homePage.clickFirstElementInSearchStorePlaceholder());
-
-        ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
-
-        assertTrue("unable to clear entered quantity text box", productDetailsPage.clearEnteredQuantityTextBox());
-
-        assertTrue("unable to enter quantity in entered quantity text box", productDetailsPage.sendKeysToEnteredQuantityTextBox(quantity));
-
-        assertTrue("unable to click on 'ADD TO CART' button",productDetailsPage.clickAddToCartButton());
-        String productAddedToShippingCartExpectedSuccessMessage = "The product has been added to your shopping cart";
-        Assert.assertEquals(productDetailsPage.getProductAddedToShippingCartSuccessMessage(),productAddedToShippingCartExpectedSuccessMessage,"unable to verify product added to shipping card success message");
-    }
-
-    public void verifyProductQuantity(String productName, int expectedQuantity){
-        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        String quantityAsString = shoppingCartPage.getProductQuantityByGivenProductName(productName);
-        int actualQuantity = Integer.parseInt(quantityAsString);
-        // Verify the quantity
-        Assert.assertEquals(actualQuantity, expectedQuantity,"Quantity mismatch for product: " + productName);
-    }
-
-    public void modifyProductQuantity(String productName, int newQuantity) {
-        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        shoppingCartPage.clearProductQuantity(productName);
-        shoppingCartPage.sendKeysProductQuantity(productName,newQuantity);
-        shoppingCartPage.clickUpdateShoppingCartButton();
-    }
-    public void removeProductFromCartAndVerify(String productName){
-        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        shoppingCartPage.clickRemoveButton(productName);
-        shoppingCartPage.clickUpdateShoppingCartButton();
-        assertTrue("Product '" + productName + "' is still present in the cart after removal",shoppingCartPage.confirmProductNameLinkIsNotVisible(productName));
+        //Remove a product from the cart and verify that the cart is updated accordingly.
+        shoppingCartPage.removeProductFromCartAndVerify(productName1);
     }
 }

@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import static org.testng.AssertJUnit.assertTrue;
 
 public class HomePage extends BasePage{
 
@@ -30,5 +31,10 @@ public class HomePage extends BasePage{
     }
     public boolean clickFirstElementInSearchStorePlaceholder(){
         return clickElement(FIRST_ELEMENT_IN_SEARCH_STORE_PLACEHOLDER);
+    }
+
+    public void searchAndSelectFirstElementInSearchStorePlaceholder(String productName){
+        assertTrue("unable to enter text in 'Search store' placeholder",sendKeysToSearchStorePlaceholder(productName));
+        assertTrue("unable to click on first element in Search store placeholder",clickFirstElementInSearchStorePlaceholder());
     }
 }

@@ -76,5 +76,11 @@
             <version>7.8.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.9.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>
