@@ -41,8 +41,8 @@ The automation follows the principles of the Page Object Model (POM) and Data-Dr
     Test : In-Progress
     Status : In-Progress
 ##### Scenario 4: Verify Cart Functionality
-    Test : In-Progress
-    Status : In-Progress
+    Test : VerifyCartFunctionality
+    Status : Work-In-Progress
 
 ### Future Improvements
 #### To configure the test environment for parallel test execution:
