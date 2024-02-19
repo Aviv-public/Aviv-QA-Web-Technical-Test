@@ -10,10 +10,15 @@ public class RegistrationPage extends BasePage{
     }
 
     private final By REGISTRATION_PAGE_TITLE = By.xpath("//h1[normalize-space()='Register']");
+    private final By MALE_RADIO_BUTTON = By.id("gender-male");
     private final By FIRST_NAME_TEXT_BOX = By.id("FirstName");
+    private final By DATE_OF_BIRTH_DAY_DROPDOWN_VALUE = By.xpath("//select[@name='DateOfBirthDay']");
+    private final By DATE_OF_BIRTH_MONTH_DROPDOWN_VALUE = By.xpath("//select[@name='DateOfBirthMonth']");
+    private final By DATE_OF_BIRTH_YEAR_DROPDOWN_VALUE = By.xpath("//select[@name='DateOfBirthYear']");
     private final By LAST_NAME_TEXT_BOX = By.id("LastName");
     private final By EMAIL_TEXT_BOX = By.id("Email");
     private final By COMPANY_NAME_TEXT_BOX = By.id("Company");
+    private final By NEWSLETTER_CHECKBOX = By.id("Newsletter");
     private final By PASSWORD_TEXT_BOX = By.id("Password");
     private final By CONFIRM_PASSWORD_TEXT_BOX = By.id("ConfirmPassword");
     private final By REGISTER_BUTTON = By.id("register-button");
@@ -63,5 +68,19 @@ public class RegistrationPage extends BasePage{
     public String getConfirmPasswordIsRequiredValidationMessage(){
         return getElementText(CONFIRM_PASSWORD_IS_REQUIRED_VALIDATION_MESSAGE);
     }
-
+    public boolean checkMaleRadioButton(){
+        return checkAndSelectCheckboxOrRadioButton(MALE_RADIO_BUTTON);
+    }
+    public boolean checkNewsletterCheckbox(){
+        return checkAndSelectCheckboxOrRadioButton(NEWSLETTER_CHECKBOX);
+    }
+    public boolean selectDateOfBirthDayDropdownValue(String day){
+        return selectElementByText(DATE_OF_BIRTH_DAY_DROPDOWN_VALUE,day);
+    }
+    public boolean selectDateOfBirthMonthDropdownValue(String month){
+        return selectElementByText(DATE_OF_BIRTH_MONTH_DROPDOWN_VALUE,month);
+    }
+    public boolean selectDateOfBirthYearDropdownValue(String year){
+        return selectElementByText(DATE_OF_BIRTH_YEAR_DROPDOWN_VALUE,year);
+    }
 }

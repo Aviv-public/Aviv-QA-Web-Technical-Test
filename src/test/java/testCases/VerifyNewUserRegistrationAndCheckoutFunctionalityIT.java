@@ -23,11 +23,17 @@ public class VerifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseCla
 
         //Fill in valid information for a new user (First Name, Last Name, Email Address, Password, Confirm Password)
         RegistrationPage registrationPage = new RegistrationPage(driver);
+        assertTrue("unable to check 'Male' radio button", registrationPage.checkMaleRadioButton());
         assertTrue("unable to enter text in 'First Name:' field", registrationPage.sendKeysToFirstName(RandomDataGenerator.randomFirstName()));
         assertTrue("unable to enter text in 'Last Name:' field", registrationPage.sendKeysToLastName(RandomDataGenerator.randomLastName()));
+
+        registrationPage.selectDateOfBirthDayDropdownValue("1");
+        registrationPage.selectDateOfBirthMonthDropdownValue("January");
+        registrationPage.selectDateOfBirthYearDropdownValue("1990");
         String email = RandomDataGenerator.randomEmail();
         assertTrue("unable to enter text in 'Email:' field", registrationPage.sendKeysToEmail(email));
         assertTrue("unable to enter text in 'Company Name:' field", registrationPage.sendKeysToCompanyName());
+        assertTrue("unable to check 'Newsletter' checkbox", registrationPage.checkNewsletterCheckbox());
         String password = RandomDataGenerator.randomPassword();
         SharedContext.setGeneratedData(email, password);
         assertTrue("unable to enter text in 'Password:' field", registrationPage.sendKeysToPassword(password));
@@ -61,7 +67,7 @@ public class VerifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseCla
         //Proceed to the checkout process
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
         assertTrue("unable to confirm 'Shopping cart' page title",shoppingCartPage.confirmShoppingCartPageTitleIsVisible());
-        assertTrue("unable to click term of service checkbox",shoppingCartPage.clickTermOfServiceCheckbox());
+        assertTrue("unable to click term of service checkbox",shoppingCartPage.checkTermOfServiceCheckbox());
         assertTrue("unable to click 'CHECKOUT' button",shoppingCartPage.clickCheckoutButton());
 
         //Verify that the checkout process includes the following steps: Cart, Address,Shipping, Payment

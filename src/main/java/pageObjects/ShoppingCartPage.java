@@ -32,8 +32,8 @@ public class ShoppingCartPage extends BasePage{
     public boolean confirmShoppingCartPageTitleIsVisible(){
         return confirmElementIsVisible(SHOPPING_CART_PAGE_TITLE);
     }
-    public boolean clickTermOfServiceCheckbox(){
-        return clickElement(TERM_OF_SERVICE_CHECKBOX);
+    public boolean checkTermOfServiceCheckbox(){
+        return checkAndSelectCheckboxOrRadioButton(TERM_OF_SERVICE_CHECKBOX);
     }
     public boolean clickCheckoutButton(){
         return clickElement(CHECKOUT_BUTTON);

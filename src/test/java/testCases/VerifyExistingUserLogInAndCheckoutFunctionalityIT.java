@@ -42,7 +42,7 @@ public class VerifyExistingUserLogInAndCheckoutFunctionalityIT extends BaseClass
         //Proceed to the checkout process
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
         assertTrue("unable to confirm 'Shopping cart' page title",shoppingCartPage.confirmShoppingCartPageTitleIsVisible());
-        assertTrue("unable to click term of service checkbox",shoppingCartPage.clickTermOfServiceCheckbox());
+        assertTrue("unable to click term of service checkbox",shoppingCartPage.checkTermOfServiceCheckbox());
         assertTrue("unable to click 'CHECKOUT' button",shoppingCartPage.clickCheckoutButton());
 
         //Verify that the checkout process includes the following steps: Cart, Address,Shipping, Payment

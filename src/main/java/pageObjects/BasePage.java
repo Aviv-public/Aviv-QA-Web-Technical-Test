@@ -117,4 +117,21 @@ public class BasePage {
             return false;
         }
     }
+
+    public boolean checkAndSelectCheckboxOrRadioButton(By locator) {
+        boolean selected = false;
+        try {
+            WebElement checkboxOrRadioButton = driver.findElement(locator);
+            selected = checkboxOrRadioButton.isSelected();
+
+            // If the checkbox or radio button is not selected, select it
+            if (!selected) {
+                checkboxOrRadioButton.click();
+                selected = true; // Update the selected status
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return selected;
+    }
 }

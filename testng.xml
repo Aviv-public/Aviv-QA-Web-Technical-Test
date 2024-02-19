@@ -9,7 +9,7 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-           <class name="testCases.VerifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
+            <class name="testCases.VerifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
             <class name="testCases.VerifyRegistrationPageValidationMessagesIT"/>
             <class name="testCases.VerifyCartFunctionality"/>
             <class name="testCases.VerifyExistingUserLogInAndCheckoutFunctionalityIT"/>
