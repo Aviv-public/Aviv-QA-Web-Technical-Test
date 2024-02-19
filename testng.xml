@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="MySuite" parallel="tests" thread-count="5">
+<suite name="MySuite" parallel="tests" thread-count="3">
 
     <listeners>
         <listener class-name="testBase.ExtentReportManager"/>
@@ -9,8 +9,8 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-           <!-- <class name="testCases.verifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
-            <class name="testCases.verifyRegistrationPageValidationMessagesIT"/> -->
+           <class name="testCases.verifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
+            <class name="testCases.verifyRegistrationPageValidationMessagesIT"/>
             <class name="testCases.VerifyCartFunctionality"/>
         </classes>
     </test>

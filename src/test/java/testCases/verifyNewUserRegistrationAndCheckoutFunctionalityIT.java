@@ -1,5 +1,6 @@
 package testCases;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.*;
@@ -12,6 +13,8 @@ public class verifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseCla
 
     @Test
     public void shouldVerifyProductCheckoutFunctionality_whenNewUserSignup(){
+        WebDriver driver = getDriver();
+
         //Click on the "Register" link
         HomePage homePage = new HomePage(driver);
         assertTrue("unable to confirm 'nopCommerce' logo",homePage.confirmNopCommerceLogoIsVisible());

@@ -1,5 +1,6 @@
 package testCases;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
@@ -13,6 +14,7 @@ public class verifyRegistrationPageValidationMessagesIT extends BaseClass {
 
     @Test
     public void shouldVerifyFieldValidationMessageOnRegistrationPageWithBlankFields_whenUserClickRegisterButton() {
+        WebDriver driver = getDriver();
 
         //Click on the "Register" link
         HomePage homePage = new HomePage(driver);
@@ -41,6 +43,8 @@ public class verifyRegistrationPageValidationMessagesIT extends BaseClass {
 
     @Test
     public void shouldVerifyPasswordFieldValidationMessageOnRegistrationPage_whenUserMismatchedPassword() {
+        WebDriver driver = getDriver();
+
         //Click on the "Register" link
         HomePage homePage = new HomePage(driver);
         assertTrue("unable to confirm 'nopCommerce' logo",homePage.confirmNopCommerceLogoIsVisible());

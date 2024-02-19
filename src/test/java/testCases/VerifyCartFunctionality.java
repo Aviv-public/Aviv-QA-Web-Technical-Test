@@ -1,5 +1,6 @@
 package testCases;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.*;
@@ -12,7 +13,7 @@ public class VerifyCartFunctionality extends BaseClass {
 
     @Test
     public void shouldVerifyCartFunctionality_whenUserAddModifyRemoveProductFromCart(){
-
+        WebDriver driver = getDriver();
         //Click on the "Register" link
         HomePage homePage = new HomePage(driver);
         assertTrue("unable to confirm 'nopCommerce' logo",homePage.confirmNopCommerceLogoIsVisible());
