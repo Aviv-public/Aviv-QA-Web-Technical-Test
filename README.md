@@ -1,4 +1,4 @@
-## Work in progress - AVIV QA Web Technical Test with Java and Selenium WebDriver
+## AVIV QA Web Technical Test with Java and Selenium WebDriver
 
 This repository includes code for automating test scenarios on the https://demo.nopcommerce.com/ website using Java and the Selenium WebDriver library.
 The automation follows the principles of the Page Object Model (POM) and Data-Driven Testing (DDT).
