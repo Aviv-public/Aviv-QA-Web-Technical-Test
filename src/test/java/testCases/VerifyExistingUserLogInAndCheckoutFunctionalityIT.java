@@ -21,6 +21,7 @@ public class VerifyExistingUserLogInAndCheckoutFunctionalityIT extends BaseClass
         //Log in with the newly created user credentials.
         assertTrue("unable to click on 'Log in' link",homePage.clickLoginLink());
 
+        // Retrieving email and password from SharedContext, which were captured after executing the 'shouldVerifyProductCheckoutFunctionality_whenNewUserSignup' method
         LoginPage loginPage = new LoginPage(driver);
         String email = SharedContext.getGeneratedEmail();
         String password = SharedContext.getGeneratedPassword();
