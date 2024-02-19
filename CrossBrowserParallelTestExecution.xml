@@ -9,18 +9,20 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="testCases.verifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
-            <class name="testCases.verifyRegistrationPageValidationMessagesIT"/>
+            <class name="testCases.VerifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
+            <class name="testCases.VerifyRegistrationPageValidationMessagesIT"/>
             <class name="testCases.VerifyCartFunctionality"/>
+            <class name="testCases.VerifyExistingUserLogInAndCheckoutFunctionalityIT"/>
         </classes>
     </test>
 
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="testCases.verifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
-            <class name="testCases.verifyRegistrationPageValidationMessagesIT"/>
+            <class name="testCases.VerifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
+            <class name="testCases.VerifyRegistrationPageValidationMessagesIT"/>
             <class name="testCases.VerifyCartFunctionality"/>
+            <class name="testCases.VerifyExistingUserLogInAndCheckoutFunctionalityIT"/>
         </classes>
     </test>
 

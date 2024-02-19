@@ -10,7 +10,7 @@ import utilities.RandomDataGenerator;
 
 import static org.testng.AssertJUnit.assertTrue;
 
-public class verifyRegistrationPageValidationMessagesIT extends BaseClass {
+public class VerifyRegistrationPageValidationMessagesIT extends BaseClass {
 
     @Test
     public void shouldVerifyFieldValidationMessageOnRegistrationPageWithBlankFields_whenUserClickRegisterButton() {

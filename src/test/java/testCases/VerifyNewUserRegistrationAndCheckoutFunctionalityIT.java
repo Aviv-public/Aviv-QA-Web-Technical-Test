@@ -6,10 +6,11 @@ import org.testng.annotations.Test;
 import pageObjects.*;
 import testBase.BaseClass;
 import utilities.RandomDataGenerator;
+import utilities.SharedContext;
 
 import static org.testng.AssertJUnit.assertTrue;
 
-public class verifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseClass {
+public class VerifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseClass {
 
     @Test
     public void shouldVerifyProductCheckoutFunctionality_whenNewUserSignup(){
@@ -28,6 +29,7 @@ public class verifyNewUserRegistrationAndCheckoutFunctionalityIT extends BaseCla
         assertTrue("unable to enter text in 'Email:' field", registrationPage.sendKeysToEmail(email));
         assertTrue("unable to enter text in 'Company Name:' field", registrationPage.sendKeysToCompanyName());
         String password = RandomDataGenerator.randomPassword();
+        SharedContext.setGeneratedData(email, password);
         assertTrue("unable to enter text in 'Password:' field", registrationPage.sendKeysToPassword(password));
         assertTrue("unable to enter text in 'Confirm Password:' field", registrationPage.sendKeysToConfirmPassword(password));
         assertTrue("unable to click on 'REGISTER' button", registrationPage.clickRegisterButton());
