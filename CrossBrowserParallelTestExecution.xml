@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="MySuite" parallel="tests" thread-count="4">
+
+    <listeners>
+        <listener class-name="testBase.ExtentReportManager"/>
+    </listeners>
+
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="testCases.VerifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
+            <class name="testCases.VerifyRegistrationPageValidationMessagesIT"/>
+            <class name="testCases.VerifyCartFunctionality"/>
+            <class name="testCases.VerifyExistingUserLogInAndCheckoutFunctionalityIT"/>
+        </classes>
+    </test>
+
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="testCases.VerifyNewUserRegistrationAndCheckoutFunctionalityIT"/>
+            <class name="testCases.VerifyRegistrationPageValidationMessagesIT"/>
+            <class name="testCases.VerifyCartFunctionality"/>
+            <class name="testCases.VerifyExistingUserLogInAndCheckoutFunctionalityIT"/>
+        </classes>
+    </test>
+
+</suite>
