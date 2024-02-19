@@ -9,7 +9,7 @@ The automation follows the principles of the Page Object Model (POM) and Data-Dr
 - **src/main/java/utilities:** Contains helper classes and methods for common functionalities and reusable utilities
 - **src/main/java/waitTimes:** Contains predefined wait times for explicit waits
 
-- **src/test/java/testBase:** Contains common setup and teardown methods.
+- **src/test/java/testBase:** Contains common setup and teardown methods along with TakesScreenshot and Extent Report logic.
 - **src/test/java/testCases:** Contains test classes and methods
 - **pom.xml:** Maven configuration file with project dependencies and settings.
 
@@ -29,20 +29,17 @@ The automation follows the principles of the Page Object Model (POM) and Data-Dr
 ### Parallel Test Execution
 - CrossBrowserParallelTestExecution.xml file is configured to provide parallel test execution, which allowing parallel test execution on Chrome and Edge browsers.
 - Additional configurations can be added/modified to extend test execution to more browsers.
+- Implemented ThreadLocal<WebDriver> to create a separate WebDriver instance for each thread. This ensures that each thread operates independently, preventing interference between parallel tests.
 
 ### Test Scenarios
 ##### Scenario 1: User Signup and Checkout
-    Test : verifyNewUserRegistrationAndCheckoutFunctionalityIT
-    Status : Completed
+    Test : VerifyNewUserRegistrationAndCheckoutFunctionalityIT
 ##### Scenario 2: Invalid Signup Attempt
-    Test : verifyRegistrationPageValidationMessagesIT
-    Status : Completed
+    Test : VerifyRegistrationPageValidationMessagesIT
 ##### Scenario 3: Existing User Login and Checkout
-    Test : In-Progress
-    Status : In-Progress
+    Test : VerifyExistingUserLogInAndCheckoutFunctionalityIT
 ##### Scenario 4: Verify Cart Functionality
     Test : VerifyCartFunctionality
-    Status : Work-In-Progress
 
 ### Future Improvements
 #### To configure the test environment for parallel test execution:
