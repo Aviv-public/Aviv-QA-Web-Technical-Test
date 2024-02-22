@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ayeshanadeem291/Aviv-QA-Web-Technical-Test#readme",
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
     "cypress": "^13.6.5"
   }
 }
