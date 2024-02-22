@@ -1,0 +1,23 @@
+{
+  "name": "Aviv-QA-Web-Technical-Test",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayeshanadeem291/Aviv-QA-Web-Technical-Test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayeshanadeem291/Aviv-QA-Web-Technical-Test/issues"
+  },
+  "homepage": "https://github.com/ayeshanadeem291/Aviv-QA-Web-Technical-Test#readme",
+  "dependencies": {
+    "cypress": "^13.6.5"
+  }
+}
