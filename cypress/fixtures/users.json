@@ -1,0 +1,13 @@
+{
+    "validUser": {
+      "email": "ayesha@gmail.com",
+      "password": "ayeshamysis2"
+    },
+    "newUser":{
+      "firstName":"Ayesha",
+      "lastName": "Raheed",
+      "email": "ayesha@gmail.com",
+      "password": "ayeshamysis2",
+      "confirmPassword":"ayeshamysis2"
+    }
+  }
