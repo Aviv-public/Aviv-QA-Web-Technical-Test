@@ -1,0 +1,103 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-02-23T17:40:15.059Z",
+    "end": "2024-02-23T17:40:32.784Z",
+    "duration": 17725,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "04bd1bc3-6089-4ad0-a440-b56e48069c88",
+      "title": "",
+      "fullFile": "cypress/e2e/scenario1.cy.js",
+      "file": "cypress/e2e/scenario1.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "efe85246-59df-4530-867f-70bb2314b6cf",
+          "title": "Scenario 1 - User Signup And Checkout",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should register the user and purchase the article successfully",
+              "fullTitle": "Scenario 1 - User Signup And Checkout should register the user and purchase the article successfully",
+              "timedOut": null,
+              "duration": 12887,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://demo.nopcommerce.com/\");\nregister.registerNewUser({\n  firstName: _faker.faker.name.firstName(),\n  lastName: _faker.faker.name.lastName(),\n  email: email,\n  password: password,\n  confirmPassword: password\n});\nregister.verifyLogin();\nregister.redirectToHomePage();\nlogin.login(email, password);\ncart.addToCart(\"Build your own computer\");\ncart.AddRamHDDToComputer();\ncart.VerifyAddToCartSuccess();\ncart.goToCart();\ncart.checkTermsAndConditions();\ncart.enterBillingDetails({\n  country: \"Germany\",\n  city: \"Berlin\",\n  streetAddress: _faker.faker.location.streetAddress(),\n  zipcode: _faker.faker.location.zipCode(),\n  phoneNumber: _faker.faker.phone.number()\n});\ncart.selectShippingMethodAndContinue();\ncart.payByCard();\ncart.enterCardDetails();\ncart.confirmOrder();\ncart.verifySuccessfulPurchase();",
+              "err": {},
+              "uuid": "3361c114-f1f3-4706-9197-bc167733cb71",
+              "parentUUID": "efe85246-59df-4530-867f-70bb2314b6cf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3361c114-f1f3-4706-9197-bc167733cb71"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12887,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

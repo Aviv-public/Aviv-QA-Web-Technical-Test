@@ -23,6 +23,8 @@ class Cart {
   cardInfoContinueBtn = "#payment-info-buttons-container button";
   confirmOrderContinueBtn = "button.confirm-order-next-step-button";
   orderConfirmationMessage = "div.title strong";
+  updateCartBtn = "#updatecart";
+  qtyInShoppingCartIcon = "#topcartlink > a > span.cart-qty";
 
   addToCart(productTitle) {
     cy.get("div.product-grid").scrollIntoView();
@@ -68,8 +70,12 @@ class Cart {
     cy.get(this.continueButton).click();
   }
   SelectBillingAddressFromAddBook() {
+    cy.get("div.step-title h2:contains('Billing address')").scrollIntoView();
+    cy.wait(5000);
     cy.get("#billing-new-address-form").then(($el) => {
-      if ($el.is(":visible")) {
+      console.log($el)
+      if (Cypress.dom.isVisible($el)) {
+        console.log('inside if condition')
         this.enterBillingDetails({
           country: "Germany",
           city: "Berlin",
@@ -78,6 +84,7 @@ class Cart {
           phoneNumber: "434503988",
         });
       } else {
+        console.log('inside else condition')
         cy.get(this.continueButton).click();
       }
     });
@@ -115,6 +122,28 @@ class Cart {
       "contain",
       "Your order has been successfully processed"
     );
+  }
+  modifyQuantityInCart(productTitle, quantity) {
+    cy.contains(".product-name", productTitle)
+      .parents("tr")
+      .find(".qty-input")
+      .clear()
+      .type(quantity);
+  }
+  clickUpdateCartButton() {
+    cy.get(this.updateCartBtn).click();
+  }
+  verifyQuantityInShoppingCartLabel(quantity) {
+    cy.get(this.qtyInShoppingCartIcon).should("have.text", `(${quantity})`);
+  }
+  removeProductFromCart(productTitle) {
+    cy.contains(".product-name", productTitle)
+      .parents("tr")
+      .find(".remove-btn")
+      .click();
+  }
+  verifyDeletionOfProduct(productTitle) {
+    cy.contains(".product-name", productTitle).should("not.exist");
   }
 }
 export default Cart;

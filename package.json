@@ -20,5 +20,8 @@
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
     "cypress": "^13.6.5"
+  },
+  "devDependencies": {
+    "mochawesome": "^7.1.3"
   }
 }
