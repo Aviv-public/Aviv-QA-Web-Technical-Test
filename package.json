@@ -1,0 +1,28 @@
+{
+  "name": "Aviv-QA-Web-Technical-Test",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayeshanadeem291/Aviv-QA-Web-Technical-Test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayeshanadeem291/Aviv-QA-Web-Technical-Test/issues"
+  },
+  "homepage": "https://github.com/ayeshanadeem291/Aviv-QA-Web-Technical-Test#readme",
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "cypress": "^13.6.5"
+  },
+  "devDependencies": {
+    "mochawesome": "^7.1.3"
+  }
+}

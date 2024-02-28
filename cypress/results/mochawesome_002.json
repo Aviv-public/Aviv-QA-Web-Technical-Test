@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-02-23T17:40:58.306Z",
+    "end": "2024-02-23T17:41:11.940Z",
+    "duration": 13634,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6fc36271-8f5d-4476-a02d-2accf921a51a",
+      "title": "",
+      "fullFile": "cypress/e2e/scenario3.cy.js",
+      "file": "cypress/e2e/scenario3.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1bf1006f-f3fb-45d3-8de7-2fd33fa148b6",
+          "title": "Scenario 3 - Existing user login and checkout",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should login with existing credentials and checkout",
+              "fullTitle": "Scenario 3 - Existing user login and checkout Should login with existing credentials and checkout",
+              "timedOut": null,
+              "duration": 12045,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//add product to cart\nlogin.login(signUpData.validUser.email, signUpData.validUser.password);\ncart.addToCart(\"Build your own computer\");\ncart.AddRamHDDToComputer();\ncart.VerifyAddToCartSuccess();\ncart.goToCart();\ncart.checkTermsAndConditions();\ncart.SelectBillingAddressFromAddBook();\ncart.selectShippingMethodAndContinue();\ncart.payByCard();\ncart.enterCardDetails();\ncart.confirmOrder();\ncart.verifySuccessfulPurchase();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#shippingoption_1`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#shippingoption_1`, but never found it.\n    at Cart.selectShippingMethodAndContinue (webpack://Aviv-QA-Web-Technical-Test/./cypress/pages/addToCart.js:91:7)\n    at Context.eval (webpack://Aviv-QA-Web-Technical-Test/./cypress/e2e/scenario3.cy.js:28:9)",
+                "diff": null
+              },
+              "uuid": "70d367cb-1f34-4d96-89ad-ab20148b5ec3",
+              "parentUUID": "1bf1006f-f3fb-45d3-8de7-2fd33fa148b6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "70d367cb-1f34-4d96-89ad-ab20148b5ec3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12045,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

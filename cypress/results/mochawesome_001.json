@@ -1,0 +1,146 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-02-23T17:40:41.977Z",
+    "end": "2024-02-23T17:40:56.532Z",
+    "duration": 14555,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0869fa99-0827-4583-9e1c-d0c39a7edce2",
+      "title": "",
+      "fullFile": "cypress/e2e/scenario2.cy.js",
+      "file": "cypress/e2e/scenario2.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "462e9824-1fa9-4546-9b82-f000a4477827",
+          "title": "Scenario 2 - Invalid Signup Attempt",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should not register when all fields are empty",
+              "fullTitle": "Scenario 2 - Invalid Signup Attempt Should not register when all fields are empty",
+              "timedOut": null,
+              "duration": 954,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "register.navigateToRegisterPage();\nregister.clickRegisterButton();\nregister.validateTheRequiredFieldsOnEmptyForm();",
+              "err": {},
+              "uuid": "01e4d3de-f5f4-4bad-8bca-32c4d179ec37",
+              "parentUUID": "462e9824-1fa9-4546-9b82-f000a4477827",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should not register when account for an email already exists",
+              "fullTitle": "Scenario 2 - Invalid Signup Attempt Should not register when account for an email already exists",
+              "timedOut": null,
+              "duration": 7033,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "register.registerNewUser({\n  firstName: \"Ayesha\",\n  lastName: \"Raheed\",\n  email: \"ayesha@gmail.com\",\n  password: \"ayeshamysis2\",\n  confirmPassword: \"ayeshamysis2\"\n});\nregister.validateEmailAlreadyExists();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `div.message-error`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `div.message-error`, but never found it.\n    at Register.validateEmailAlreadyExists (webpack://Aviv-QA-Web-Technical-Test/./cypress/pages/registerPage.js:56:34)\n    at Context.eval (webpack://Aviv-QA-Web-Technical-Test/./cypress/e2e/scenario2.cy.js:23:13)",
+                "diff": null
+              },
+              "uuid": "6ec35dab-517a-451f-b249-42a4afd080ce",
+              "parentUUID": "462e9824-1fa9-4546-9b82-f000a4477827",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should not register when passwords dont match",
+              "fullTitle": "Scenario 2 - Invalid Signup Attempt Should not register when passwords dont match",
+              "timedOut": null,
+              "duration": 2282,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "register.registerNewUser({\n  firstName: _faker.faker.name.firstName(),\n  lastName: _faker.faker.name.lastName(),\n  email: _faker.faker.internet.email(),\n  password: _faker.faker.internet.password(),\n  confirmPassword: _faker.faker.internet.password()\n});\nregister.validatePasswordDontMatchMessage();",
+              "err": {},
+              "uuid": "72832078-fa8f-4531-80e4-e1e8649b28ec",
+              "parentUUID": "462e9824-1fa9-4546-9b82-f000a4477827",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "01e4d3de-f5f4-4bad-8bca-32c4d179ec37",
+            "72832078-fa8f-4531-80e4-e1e8649b28ec"
+          ],
+          "failures": [
+            "6ec35dab-517a-451f-b249-42a4afd080ce"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10269,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}
