@@ -1,5 +1,6 @@
 const { POManager } = require('../pageobjects/POManager')
 const {customtestmultipleproducts} = require('../utils/test-base')
+const { expect } = require("@playwright/test")
 
 
 customtestmultipleproducts('verify cart functionality - Computers + Camera + Apparel + Jewelry + Digital Downloads + Gift Cards', async ({ page, multipleproducts }) => {
@@ -25,5 +26,7 @@ customtestmultipleproducts('verify cart functionality - Computers + Camera + App
     productNameList.push(multipleproducts.productNameGiftCard)
     await shoppingCartPage.productDetailsFromCartPage(productNameList,multipleproducts.productQty)
     await shoppingCartPage.updateCartWithProductDetails(multipleproducts.productNameNotebook,multipleproducts.modifiedProductQty)
+    expect(await shoppingCartPage.cartTotal()).toBeTruthy()
     await shoppingCartPage.removeProductFromCart(multipleproducts.productNameJewelry)
+    expect(await shoppingCartPage.cartTotal()).toBeTruthy()
 })

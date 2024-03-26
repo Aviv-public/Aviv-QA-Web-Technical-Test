@@ -47,15 +47,19 @@ class DepartmentPage {
         return await this.productaddsuccessmsg
     }
     async clickOnShoppingCart() {
+        await this.page.locator('span.cart-label').isVisible()
+        await this.page.waitForTimeout(3)
         await this.page.locator('span.cart-label').click({ force: true })
     }
 
     async clickOnCategoryAndAddToCart(category, productText, productQty) {
         await this.page.getByRole('link', { name: "" + category + "" }).first().click()
+        await this.page.waitForTimeout(3)
+        await this.itembox.filter({ hasText: "" + productText + "" }).getByRole('button', { name: 'Add to cart' }).first().isVisible()
         await this.itembox.filter({ hasText: "" + productText + "" }).getByRole('button', { name: 'Add to cart' }).first().click()
 
         if (productText === products.DIGITAL_DOWNLOAD_PRODUCT__1 || productText === products.DIGITAL_DOWNLOAD_PRODUCT__2) {
-
+            await this.page.waitForTimeout(3)
             await this.enterpriceinput.isVisible().then(async()=>{
                 await this.enterpriceinput.fill(products.DIGITAL_DOWNLOAD_PRODUCT__PRICE_INPUT)
                 await this.page.locator('input.qty-input').fill(productQty)
@@ -63,25 +67,33 @@ class DepartmentPage {
             await this.addToCart()
         }
         if (productText === products.GIFT_CARD_PRODUCT_1 || productText === products.GIFT_CARD_PRODUCT_2) {
+            await this.page.waitForTimeout(3)
+            await this.recipientname.isVisible()
             await this.recipientname.fill(products.GIFT_CARD_RECIPIENT_NAME)
             await this.sendername.fill(products.GIFT_CARD_SENDER_NAME)
             await this.inputqty.fill(productQty)
             await this.addToCart()
         }
         if (productText === products.GIFT_CARD_PRODUCT_3) {
-            await this.recipientname.fill(products.GIFT_CARD_RECIPIENT_NAME)
-            await this.recipientemail.fill(products.GIFT_CARD_RECIPIENT_EMAIL)
-            await this.sendername.fill(products.GIFT_CARD_SENDER_NAME)
-            await this.senderemail.fill(products.GIFT_CARD_SENDER_EMAIL)
-            await this.inputqty.fill(productQty)
-            await this.addToCart()
+            await this.recipientname.isVisible().then(async()=>{
+                await this.page.waitForTimeout(3)
+                await this.recipientname.fill(products.GIFT_CARD_RECIPIENT_NAME)
+                await this.recipientemail.fill(products.GIFT_CARD_RECIPIENT_EMAIL)
+                await this.sendername.fill(products.GIFT_CARD_SENDER_NAME)
+                await this.senderemail.fill(products.GIFT_CARD_SENDER_EMAIL)
+                await this.inputqty.fill(productQty)
+                await this.addToCart()
+            })
         }
     }
 
     async clickOnCategoryAndRent(category, productText, startDate, endDate, productQty) {
         await this.page.getByRole('link', { name: "" + category + "" }).first().click()
+        await this.page.waitForTimeout(3)
         await this.itembox.filter({ hasText: "" + productText + "" }).getByRole('button', { name: 'Rent' }).first().click()
         if (await productText === products.JEWELRY_PRODUCT_1) {
+            await this.page.waitForTimeout(3)
+            await this.rentstartdate.isVisible()
             await this.rentstartdate.click().then(async () =>{
                 while (!(await this.datepickermonth.textContent() === startDate.split("-")[0] && await this.datepickeryear.textContent() === startDate.split("-")[1])) {
                     await this.next.click()
@@ -102,6 +114,7 @@ class DepartmentPage {
     async clickOnSubcategoryAndAddToCart(category, subcategory, productText, productQty) {
         await this.page.getByRole('link', { name: "" + category + "" }).first().hover()
         await this.page.getByRole('link', { name: "" + subcategory + "" }).click()
+        await this.page.waitForTimeout(3)
         await this.itembox.filter({ hasText: "" + productText + "" }).getByRole('button', { name: 'Add to cart' }).waitFor()
         await this.itembox.filter({ hasText: "" + productText + "" }).getByRole('button', { name: 'Add to cart' }).first().click()
 
@@ -120,17 +133,24 @@ class DepartmentPage {
             await this.addToCart()
         }
         if (productText === products.CAMERA_PRODUCT_1) {
-            await this.inputqty.nth(0).fill(productQty)
-            this.cameraVariation = await this.cameravariantname.nth(0).textContent()
-            await this.addtocart.nth(0).click()
-            await this.selectedCameraVariation()
+            await this.page.waitForTimeout(3)
+            if(await this.inputqty.nth(0).isVisible().then(async()=>{
+                await this.inputqty.nth(0).fill(productQty)
+                this.cameraVariation = await this.cameravariantname.nth(0).textContent()
+                await this.addtocart.nth(0).click()
+                await this.selectedCameraVariation()
+            })){
+            }
+            
         }
         if (productText === products.SHOES_PRODUCT_1) {
+            await this.page.waitForTimeout(3)
             await this.selectProductOption(9, products.SHOES_PRODUCT_1_SIZE)
             await this.inputqty.fill(productQty)
             await this.addToCart()
         }
         if (productText === products.SHOES_PRODUCT_2) {
+            await this.page.waitForTimeout(3)
             await this.selectProductOption(6, products.SHOES_PRODUCT_2_SIZE)
             await this.selectProductOption(7, products.SHOES_PRODUCT_2_COLOR)
             await this.color.nth(1).click()
@@ -138,16 +158,19 @@ class DepartmentPage {
             await this.addToCart()
         }
         if (productText === products.APPAREL_PRODUCT_1) {
+            await this.page.waitForTimeout(3)
             await this.enterCustomProductText(12, products.APPAREL_PRODUCT_1_CUSTOM_TEXT)
             await this.inputqty.fill(productQty)
             await this.addToCart()
         }
         if (productText === products.APPAREL_PRODUCT_2) {
+            await this.page.waitForTimeout(3)
             await this.selectProductOption(11, products.APPAREL_PRODUCT_2_SIZE)
             await this.inputqty.fill(productQty)
             await this.addToCart()
         }
         if (productText === products.ACCESSORIES_PRODUCT_1) {
+            await this.page.waitForTimeout(3)
             await this.selectProductOption(13, products.ACCESSORIES_PRODUCT_1_SIZE)
             await this.inputqty.fill(productQty)
             await this.addToCart()

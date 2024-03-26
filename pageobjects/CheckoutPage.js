@@ -106,6 +106,7 @@ class CheckoutPage {
 
     async confirmOrder() {
         if (await this.confirmordercontainer.isEnabled()) {
+            await this.page.waitForTimeout(3)
             await this.confirmordercontainer.locator('button.confirm-order-next-step-button').click()
         }
     }

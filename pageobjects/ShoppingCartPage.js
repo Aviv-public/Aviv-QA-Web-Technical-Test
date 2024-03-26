@@ -33,7 +33,7 @@ class ShoppingCartPage {
                 break
             }
         }
-        await this.cartTotal()
+        //await this.cartTotal()
     }
 
     async removeProductFromCart(productName) {
@@ -46,7 +46,7 @@ class ShoppingCartPage {
                 break
             }
         }
-        await this.cartTotal()
+        //await this.cartTotal()
     }
 
     async cartTotal() {
@@ -62,7 +62,7 @@ class ShoppingCartPage {
         }
         let total = await this.carttotal.locator('tr.order-total span.value-summary strong').textContent()
         let actualTotal = total.split("$")[1]
-        actualSum === parseInt(actualTotal.replace(",", ""))
+        return actualSum === parseInt(actualTotal.replace(",", ""))
     }
 
 
