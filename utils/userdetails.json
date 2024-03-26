@@ -1,0 +1,10 @@
+    {
+        "USER_FIRST_NAME": "testneetish",
+        "USER_LAST_NAME": "testsharma",
+        "USER_DOB_DAY": "16",
+        "USER_DOB_MONTH": "May",
+        "USER_DOB_YEAR": "1990",
+        "USER_COMPANY": "aviv",
+        "USER_EMAIL": "test33@gmail.com",
+        "REGISTRATION_MSG_SUCCESS": "Your registration completed"
+    }

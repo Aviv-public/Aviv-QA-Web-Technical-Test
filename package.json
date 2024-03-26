@@ -1,0 +1,19 @@
+{
+  "name": "avivchallenge",
+  "version": "1.0.0",
+  "description": "Aviv Challenge QA Web test",
+  "main": "index.js",
+  "scripts": {
+    "regression": "npx playwright test",
+    "chromeHead": "npx playwright test --project=chromeHead"
+  },
+  "author": "Neetish Sharma",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.41.2",
+    "@types/node": "^20.11.16"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.2"
+  }
+}
